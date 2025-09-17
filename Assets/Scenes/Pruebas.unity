@@ -423,6 +423,8 @@ GameObject:
   - component: {fileID: 532177521}
   - component: {fileID: 532177525}
   - component: {fileID: 532177524}
+  - component: {fileID: 532177527}
+  - component: {fileID: 532177526}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -540,6 +542,37 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &532177526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532177519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8fbb62fa9eaa8e42ae2510cb471acfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stamina:
+    maxValue: 100
+    currentValue: 0
+    regenRate: 15
+--- !u!114 &532177527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532177519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3319e7c983239ff418e0d367ca8a08af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health:
+    maxValue: 100
+    currentValue: 0
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
