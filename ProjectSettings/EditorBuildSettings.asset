@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Pruebas/Scenes/Pruebas.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 56cb59caa9c5e314f90d3052014c2d3a, type: 2}
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 0b9ac7d32b0cda147923ed427528c9c7, type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: e8e8645e8252c30419dc93f7ce3ed42f, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: d800a98a775bc3046b7bd9ac78e56a48, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
