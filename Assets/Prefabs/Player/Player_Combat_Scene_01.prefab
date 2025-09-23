@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 8521741520099205116}
   - component: {fileID: 8930867458282046622}
   - component: {fileID: 6820192924122210115}
+  - component: {fileID: 5904784392781096215}
+  - component: {fileID: 6373901626334136138}
   m_Layer: 0
   m_Name: Player_Combat_Scene_01
   m_TagString: Player
@@ -128,3 +130,34 @@ MonoBehaviour:
   health:
     maxValue: 100
     currentValue: 0
+--- !u!114 &5904784392781096215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5700392978933016131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0a3926f36e86c4d84b34d2e4a6d23c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionPoints:
+    maxValue: 100
+    currentValue: 0
+--- !u!114 &6373901626334136138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5700392978933016131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b558e45b1d9b768468bba34ecd932ffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _abilities:
+  - {fileID: 11400000, guid: 8caa6dbd073ab9d46a257524b186a5b8, type: 2}
+  - {fileID: 11400000, guid: 46b2603f5bceb0a4fbd200524093d852, type: 2}
+  - {fileID: 11400000, guid: 02513691fe210314a83656dc95ab7535, type: 2}
