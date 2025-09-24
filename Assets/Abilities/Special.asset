@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466364de247cf4f40995e10353dc6926, type: 3}
+  m_Name: Special
+  m_EditorClassIdentifier: 
+  _abilityName: Pesebre Celestial
+  _description: "\u201CInvoca una energ\xEDa sagrada que se alza lentamente, como
+    el resplandor de miles de velitas encendidas en la noche de diciembre. Cuando
+    finalmente se manifiesta, purifica todo el campo con una luz celestial capaz
+    de borrar hasta la m\xE1s oscura sombra. Pero cuidado\u2026 si la fe flaquea,
+    podr\xEDas terminar purificando al pueblo vecino, desperdiciando tus valiosos
+    puntos de acci\xF3n.\u201D"
+  _apCost: 150
+  _targetingStyle: 1
+  _targetPercentage: 1
+  _actionSpeed: 10
+  _damage: 85
+  _missChance: 0.25
