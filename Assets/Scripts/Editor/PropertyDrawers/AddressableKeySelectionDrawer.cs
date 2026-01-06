@@ -45,14 +45,7 @@ namespace Santa.Editor.PropertyDrawers
             {
                 property.stringValue = _options[newIndex];
             }
-            else if (index == -1 && !string.IsNullOrEmpty(currentVal)) 
-            {
-                // If current value is not in options, show it but maybe warn (or just let user pick from valid list to fix it)
-                // We'll just force them to pick a valid one if they touch the control, but initially it might show -1 (nothing selected).
-                // Let's add the current invalid value to the list temporarily? No, better to force valid selection.
-                // Just let the popup start as unselected/mixed if invalid.
-                 EditorGUI.PropertyField(position, property, label); // Fallback to text field if invalid so they can see what it was? No, request was robust dropdown.
-            }
+
         }
 
         private void InitializeOptions()

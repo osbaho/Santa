@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace Santa.Infrastructure.Input
 {
-    [CreateAssetMenu(fileName = "InputReader", menuName = "Santa/Input Reader")]
+    [CreateAssetMenu(fileName = "InputReader", menuName = "Santa/Input Reader ")]
     public class InputReader : ScriptableObject, @ActionMap.IPlayerActions
     {
         public event System.Action<Vector2> MoveEvent;
@@ -26,9 +26,7 @@ namespace Santa.Infrastructure.Input
             if (!_actionMap.UI.enabled)
             {
                 _actionMap.UI.Enable();
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
-                GameLog.Log($"InputReader '{name}': Enabled UI action map for pointer/click processing.");
-#endif
+
             }
         }
 
@@ -67,9 +65,7 @@ namespace Santa.Infrastructure.Input
         /// </summary>
         public void RaiseInteract()
         {
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
-            GameLog.Log($"InputReader '{name}': RaiseInteract invoked.");
-#endif
+
             InteractEvent?.Invoke();
         }
 
