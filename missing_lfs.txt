@@ -1,0 +1,297 @@
+Fallback.asset
+Assets/AddressableAssetsData/AssetGroups/Changeables.asset
+Assets/AddressableAssetsData/AssetGroups/Decorations.asset
+Assets/Prefabs/Decor/American/Enemy_01/Decor_American_01.prefab
+Assets/Prefabs/Decor/Christmas/Enemy_01/Decor_Christmas_01.prefab
+Assets/Scenes/Gameplay.unity
+Assets/Scriptable Objects/Decors/Decor_Enemy_01.asset
+Assets/AddressableAssetsData/AssetGroups/Derorations.asset
+Assets/AddressableAssetsData/AssetGroups/Schemas/Derorations_BundledAssetGroupSchema.asset
+Assets/AddressableAssetsData/AssetGroups/Schemas/Derorations_ContentUpdateGroupSchema.asset
+Assets/Camilo/props_arte/arte_sara/._abuelafix.fbx
+Assets/Camilo/props_arte/arte_sara/._arbol1.fbx
+Assets/Camilo/props_arte/arte_sara/._arbol2.fbx
+Assets/Camilo/props_arte/arte_sara/._arbol3.fbx
+Assets/Camilo/props_arte/arte_sara/._arbol_navidad.fbx
+Assets/Camilo/props_arte/arte_sara/._coltejer.fbx
+Assets/Camilo/props_arte/arte_sara/._trineo.fbx
+Assets/Camilo/props_arte/arte_sara/._velas_madera.fbx
+Assets/Camilo/props_arte/arte_sara/blas_navidad_4.prefab
+Assets/Camilo/props_arte/arte_sara/bolas_navidad_3 1.prefab
+Assets/Camilo/props_arte/arte_sara/bolas_navidad_3.prefab
+Assets/DefaultVolumeProfile.asset
+Assets/Scenes/calle_Colombia.unity
+Assets/Scenes/calle_USA.unity
+Assets/Camilo/calle_1/OcclusionCullingData.asset
+Assets/Camilo/calle_Colombia.unity
+Assets/Camilo/calle_Colombia/OcclusionCullingData.asset
+Assets/Pruebas/Scenes/Completed.unity
+Assets/Pruebas/Scenes/Pruebas_02.unity
+Assets/Pruebas/Scenes/Pruebas_combate.unity
+Assets/Scenes/Prototipo.unity
+Assets/Camilo/calle_1.unity
+Assets/Settings/Low_PipelineAsset.asset
+Assets/Settings/Medium_PipelineAsset.asset
+Assets/Settings/Ultra_PipelineAsset.asset
+Assets/Settings/Very Low_PipelineAsset.asset
+Assets/AddressableAssetsData/AssetGroups/Strategies.asset
+Assets/AddressableAssetsData/AddressableAssetGroupSortSettings.asset
+Assets/AddressableAssetsData/AddressableAssetSettings.asset
+Assets/AddressableAssetsData/AssetGroups/Combat_Arenas.asset
+Assets/AddressableAssetsData/AssetGroups/Core_Data.asset
+Assets/AddressableAssetsData/AssetGroups/Core_UI.asset
+Assets/AddressableAssetsData/AssetGroups/Enemies_Bosses.asset
+Assets/AddressableAssetsData/AssetGroups/Enemies_Common.asset
+Assets/AddressableAssetsData/AssetGroups/Schemas/Combat_Arenas_BundledAssetGroupSchema.asset
+Assets/AddressableAssetsData/AssetGroups/Schemas/Combat_Arenas_ContentUpdateGroupSchema.asset
+Assets/AddressableAssetsData/AssetGroups/Schemas/Core_Data_BundledAssetGroupSchema.asset
+Assets/AddressableAssetsData/AssetGroups/Schemas/Core_Data_ContentUpdateGroupSchema.asset
+Assets/AddressableAssetsData/AssetGroups/Schemas/Core_UI_BundledAssetGroupSchema.asset
+Assets/AddressableAssetsData/AssetGroups/Schemas/Core_UI_ContentUpdateGroupSchema.asset
+Assets/AddressableAssetsData/AssetGroups/Schemas/Enemies_Bosses_BundledAssetGroupSchema.asset
+Assets/AddressableAssetsData/AssetGroups/Schemas/Enemies_Bosses_ContentUpdateGroupSchema.asset
+Assets/AddressableAssetsData/AssetGroups/Schemas/Enemies_Common_BundledAssetGroupSchema.asset
+Assets/AddressableAssetsData/AssetGroups/Schemas/Enemies_Common_ContentUpdateGroupSchema.asset
+Assets/AddressableAssetsData/ProfileDataSourceSettings.asset
+Assets/Camilo/props_arte/assets_nuevos/prefabs_assets_nuevos/postedeluz_uvs.prefab
+Assets/Camilo/props_arte/nuevos_pops/casa_tradicional.fbx
+Assets/Camilo/props_arte/nuevos_pops/casita1.fbx
+Assets/Camilo/props_arte/nuevos_pops/casita2.fbx
+Assets/Camilo/props_arte/nuevos_pops/casita3.fbx
+Assets/Camilo/props_arte/nuevos_pops/edificio1.fbx
+Assets/Camilo/props_arte/nuevos_pops/edificio2.fbx
+Assets/Camilo/props_arte/nuevos_pops/prefabs/casa_tradicional.prefab
+Assets/Camilo/props_arte/nuevos_pops/prefabs/casita1.prefab
+Assets/Camilo/props_arte/nuevos_pops/prefabs/casita2.prefab
+Assets/Camilo/props_arte/nuevos_pops/prefabs/casita3.prefab
+Assets/Camilo/props_arte/nuevos_pops/prefabs/edificio1.prefab
+Assets/Camilo/props_arte/nuevos_pops/prefabs/edificio2.prefab
+Assets/Camilo/props_arte/nuevos_pops/prefabs/toldo.prefab
+Assets/Camilo/props_arte/nuevos_pops/toldo.fbx
+Assets/Prefabs/Combate/CombatArena_Forest_01.prefab
+Assets/Prefabs/Enemies/Enemy01.prefab
+Assets/Prefabs/Enemies/Enemy02.prefab
+Assets/Prefabs/Enemies/Enemy03.prefab
+Assets/Prefabs/Enemies/Enemy_Exploraton.prefab
+Assets/Prefabs/Gameplay/_GameSystems .prefab
+Assets/Prefabs/Levels/EstadoInicial .prefab
+Assets/Prefabs/Levels/EstadoLiberado.prefab
+Assets/Scriptable Objects/Levels/DatosNivel1.asset
+Assets/Scriptable Objects/Levels/Task/Mini taks/Combat TO Exploration/SetGameStateTask 2.asset
+Assets/Scriptable Objects/Levels/Task/Mini taks/Exploration TO Combat/SetGameStateTask.asset
+Assets/Scriptable Objects/Profiles/DefaultPlayerStats.asset
+Assets/Scriptable Objects/Strategies/IncreaseActionSpeedStrategy.asset
+Assets/Scriptable Objects/Strategies/IncreaseCriticalHitChanceStrategy.asset
+Assets/Scriptable Objects/Strategies/IncreaseDamageStrategy.asset
+Assets/Scriptable Objects/Strategies/IncreaseMaxHealthStrategy.asset
+Assets/Scriptable Objects/Strategies/ReduceAPCostStrategy.asset
+Assets/Scriptable Objects/Strategies/ReduceSpecialMissChanceStrategy.asset
+ProjectSettings/URPProjectSettings.asset
+Assets/AddressableAssetsData/AssetGroups/Abilities.asset
+Assets/AddressableAssetsData/AssetGroups/Combate.asset
+Assets/AddressableAssetsData/AssetGroups/Schemas/Combate_BundledAssetGroupSchema.asset
+Assets/AddressableAssetsData/AssetGroups/Schemas/Combate_ContentUpdateGroupSchema.asset
+Assets/AddressableAssetsData/AssetGroups/Schemas/UI_BundledAssetGroupSchema.asset
+Assets/AddressableAssetsData/AssetGroups/Schemas/UI_ContentUpdateGroupSchema.asset
+Assets/AddressableAssetsData/AssetGroups/UI.asset
+Assets/Prefabs/UI/CombatUI.prefab
+Assets/Prefabs/UI/VirtualGamepad.prefab
+Assets/Pruebas/Scenes/TestScene.unity
+Assets/Scriptable Objects/Abilities/Area.asset
+Assets/Scriptable Objects/Abilities/Direct.asset
+Assets/Scriptable Objects/Abilities/GainAP.asset
+Assets/Scriptable Objects/Abilities/Special.asset
+Assets/Scriptable Objects/Levels/Task/Mini taks/Exploration TO Combat/FullScreenFadeTask.asset
+Assets/Scriptable Objects/Transitions/Tasks/ScreenFadeIn.asset
+Assets/Scriptable Objects/Transitions/Tasks/ScreenFadeOut.asset
+Assets/Scriptable Objects/Upgrades/Ugrade0 1.asset
+Assets/Scriptable Objects/Upgrades/Ugrade0 2.asset
+Assets/Scriptable Objects/Upgrades/Ugrade0 3.asset
+Assets/Scriptable Objects/Upgrades/Ugrade0 4.asset
+Assets/Scriptable Objects/Upgrades/Ugrade0 5.asset
+Assets/Scriptable Objects/Upgrades/Ugrade0.asset
+ProjectSettings/ProjectSettings.asset
+ProjectSettings/TagManager.asset
+Assets/Camilo/props_arte/assets_nuevos/prefabs_assets_nuevos/postedeluz_uvs 1.prefab
+Assets/Camilo/props_arte/arte_sara/blas_navidad_.fbx
+Assets/Camilo/props_arte/arte_sara/blas_navidad_3.fbx
+Assets/Camilo/props_arte/arte_sara/blas_navidad_2.fbx
+Assets/Camilo/props_arte/arte_sara/._comida_abuela.fbx
+Assets/Camilo/props_arte/arte_sara/comida_abuela.fbx
+Assets/Camilo/props_arte/assets nuevos/prefabs_assets nuevos/casita2_uvs.prefab
+Assets/Camilo/props_arte/assets nuevos/prefabs_assets nuevos/casita3_uvs.prefab
+Assets/Camilo/props_arte/assets nuevos/prefabs_assets nuevos/casita4_uvs.prefab
+Assets/Camilo/props_arte/assets nuevos/prefabs_assets nuevos/edificio2_uvs.prefab
+Assets/Camilo/props_arte/assets nuevos/prefabs_assets nuevos/postedeluz1_uvs.prefab
+Assets/Camilo/props_arte/assets nuevos/prefabs_assets nuevos/postedeluz_uvs.prefab
+Assets/Camilo/props_arte/assets nuevos/prefabs_assets nuevos/regalo2_uvs (1).prefab
+Assets/Camilo/props_arte/assets nuevos/prefabs_assets nuevos/regalo3_uvs (1).prefab
+Assets/Camilo/props_arte/assets nuevos/postedeluz1_uvs.fbx
+Assets/Prefabs/Player/Player_Combat.prefab
+Assets/Prefabs/Player/Player_Exploration.prefab
+ProjectSettings/GraphicsSettings.asset
+ProjectSettings/QualitySettings.asset
+Assets/AddressableAssetsData/AssetGroups/Schemas/UI_MetaGame_BundledAssetGroupSchema.asset
+Assets/AddressableAssetsData/AssetGroups/Schemas/UI_MetaGame_ContentUpdateGroupSchema.asset
+Assets/AddressableAssetsData/AssetGroups/UI_MetaGame.asset
+Assets/Prefabs/Combate/CombatScene_01.prefab
+Assets/AddressableAssetsData/AssetGroups/AtaquesPersonaje.asset
+Assets/AddressableAssetsData/AssetGroups/Schemas/AtaquesPersonaje_BundledAssetGroupSchema.asset
+Assets/AddressableAssetsData/AssetGroups/Schemas/AtaquesPersonaje_ContentUpdateGroupSchema.asset
+Assets/AddressableAssetsData/AssetGroups/Schemas/UI_InGame_BundledAssetGroupSchema.asset
+Assets/AddressableAssetsData/AssetGroups/Schemas/UI_InGame_ContentUpdateGroupSchema.asset
+Assets/AddressableAssetsData/AssetGroups/Schemas/UpgradesAtaques_BundledAssetGroupSchema.asset
+Assets/AddressableAssetsData/AssetGroups/Schemas/UpgradesAtaques_ContentUpdateGroupSchema.asset
+Assets/AddressableAssetsData/AssetGroups/UI_InGame.asset
+Assets/AddressableAssetsData/AssetGroups/UpgradesAtaques.asset
+Assets/Prefabs/UI/UpgradePanel.prefab
+Assets/Scriptable Objects/Levels/Task/EndCombatSequence.asset
+Assets/Scriptable Objects/Levels/Task/StartCombatSequence.asset
+Assets/Scriptable Objects/Transitions/EndCombatTransition.asset
+Assets/Adaptive Performance/AdaptivePerformanceGeneralSettings.asset
+Assets/Adaptive Performance/Provider/Google Android Provider Loader.asset
+Assets/Adaptive Performance/Provider/Samsung Android Provider Loader.asset
+Assets/Adaptive Performance/Provider/Simulator Provider Loader.asset
+Assets/Adaptive Performance/Settings/Google Android Provider Settings.asset
+Assets/Adaptive Performance/Settings/Samsung Android Provider Settings.asset
+Assets/Adaptive Performance/Settings/Simulator Provider Settings.asset
+Assets/Scripts/Input/PlayerInputReader.asset
+ProjectSettings/PackageManagerSettings.asset
+Assets/Pruebas/Scenes/Prueba_Escemarios1.0.unity
+Assets/Pruebas/Scenes/Prueba_aval.unity
+Assets/Samples/Adaptive Performance/5.1.6/Adaptive Batching/AdaptiveBatching.unity
+Assets/Samples/Adaptive Performance/5.1.6/Adaptive Decals/AdaptiveDecals.unity
+Assets/Samples/Adaptive Performance/5.1.6/Adaptive Framerate/AdaptiveFramerate.unity
+Assets/Samples/Adaptive Performance/5.1.6/Adaptive LOD/AdaptiveLOD.unity
+Assets/Samples/Adaptive Performance/5.1.6/Adaptive LUT/AdaptiveLUT.unity
+Assets/Samples/Adaptive Performance/5.1.6/Adaptive Layer Culling/AdaptiveLayerCulling.unity
+Assets/Samples/Adaptive Performance/5.1.6/Adaptive MSAA/AdaptiveMSAA.unity
+Assets/Samples/Adaptive Performance/5.1.6/Adaptive Physics/AdaptivePhysics.unity
+Assets/Samples/Adaptive Performance/5.1.6/Adaptive Physics/CPULoad_Ball_Physics.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Adaptive Resolution/AdaptiveResolution.unity
+Assets/Samples/Adaptive Performance/5.1.6/Adaptive Shadow/AdaptiveShadow.unity
+Assets/Samples/Adaptive Performance/5.1.6/Adaptive Sorting/AdaptiveSorting.unity
+Assets/Samples/Adaptive Performance/5.1.6/Adaptive Transparency/AdaptiveTransparency.unity
+Assets/Samples/Adaptive Performance/5.1.6/Adaptive View Distance Sample/AdaptiveViewDistance.unity
+Assets/Samples/Adaptive Performance/5.1.6/Automatic Performance Control/AutomaticPerformanceControl.unity
+Assets/Samples/Adaptive Performance/5.1.6/Boost/Boost.unity
+Assets/Samples/Adaptive Performance/5.1.6/Bottleneck/Bottleneck.unity
+Assets/Samples/Adaptive Performance/5.1.6/Cluster Info/ClusterInfo.unity
+Assets/Samples/Adaptive Performance/5.1.6/Custom Scaler Sample/CustomScaler.unity
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Animations/HighLevelCam.controller
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Animations/HighLevelLoop.anim
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Animations/Loop_Position.anim
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Animations/MidLevelCam.controller
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Animations/MidLevelLoop.anim
+Assets/Samples/Adaptive Performance/5.1.6/Environment/AutoPerfControl.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Environment/AutoPerfUI.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Blockwall/BigTriangleObject.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Blockwall/ObjectSpawner.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Boost/BoostVisualization.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Bottleneck/BottleneckVisualization.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Bottleneck/CPULoad_Bee.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Bottleneck/GPULoad_Particles.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Bottleneck/Walls.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Environment/ClusterInfo/ClusterInfoVisualization.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Floor/Floor.FBX
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Floor/Floor.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Floor/GridBox_NewTex_Albedo.tga
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Rocks/Models/RockFloating02.fbx
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Rocks/Models/RockFloating04.fbx
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Rocks/RockFloating02.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Rocks/RockFloating04.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Rocks/RockWithVegetation.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Rocks/RockWithVegetationNotSpinning.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Scaler/Scaler Representation.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Scaler/Scaler Visualization.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Environment/ScalerProfiles/ScalerProfileListItem.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Environment/ScalerProfiles/ScalerProfiles.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Settings/AdaptivePerformanceSettings.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Environment/TestSequencer.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Environment/URP Settings/APSamplesForwardRenderer.asset
+Assets/Samples/Adaptive Performance/5.1.6/Environment/URP Settings/APSamplesHighQuality.asset
+Assets/Samples/Adaptive Performance/5.1.6/Environment/URP Settings/Global Volume Profile LUT.asset
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Vegetation/Models/VegetationLarge03.fbx
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Vegetation/Models/VegetationMedium01.fbx
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Vegetation/SporesLarge.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Vegetation/SporesMedium.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Vegetation/VegetationLarge03.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Environment/Vegetation/VegetationMedium01.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Game Mode/GameMode.unity
+Assets/Samples/Adaptive Performance/5.1.6/Lifecycle Management/LifecycleManagement.unity
+Assets/Samples/Adaptive Performance/5.1.6/Performance Mode/PerformanceMode.unity
+Assets/Samples/Adaptive Performance/5.1.6/Performance Mode/PerformanceModeVisualisation.prefab
+Assets/Samples/Adaptive Performance/5.1.6/Scaler Profile Sample/ScalerProfiles.unity
+Assets/Samples/Adaptive Performance/5.1.6/Thermal/Thermal.unity
+Assets/Samples/Adaptive Performance/5.1.6/Thermal/ThermalVisualisation.prefab
+Assets/Samples/Adaptive Performance/5.1.6/VRR/VariableRefreshRate.unity
+Assets/Samples/Adaptive Performance/5.1.6/Visual Scripting/BoostMode.asset
+Assets/Samples/Adaptive Performance/5.1.6/Visual Scripting/Bottleneck.asset
+Assets/Samples/Adaptive Performance/5.1.6/Visual Scripting/ClusterInfo.asset
+Assets/Samples/Adaptive Performance/5.1.6/Visual Scripting/EnableCPUBoostMode.asset
+Assets/Samples/Adaptive Performance/5.1.6/Visual Scripting/EnableGPUBoostMode.asset
+Assets/Samples/Adaptive Performance/5.1.6/Visual Scripting/FPS.asset
+Assets/Samples/Adaptive Performance/5.1.6/Visual Scripting/FrameTiming.asset
+Assets/Samples/Adaptive Performance/5.1.6/Visual Scripting/FrameTimingSub.asset
+Assets/Samples/Adaptive Performance/5.1.6/Visual Scripting/Indexer.asset
+Assets/Samples/Adaptive Performance/5.1.6/Visual Scripting/PerformanceLevels.asset
+Assets/Samples/Adaptive Performance/5.1.6/Visual Scripting/PerformanceMode.asset
+Assets/Samples/Adaptive Performance/5.1.6/Visual Scripting/ScalerUpdate.asset
+Assets/Samples/Adaptive Performance/5.1.6/Visual Scripting/SetPerformanceCPULevel.asset
+Assets/Samples/Adaptive Performance/5.1.6/Visual Scripting/SetPerformanceGPULevel.asset
+Assets/Samples/Adaptive Performance/5.1.6/Visual Scripting/ThermalColorChange.asset
+Assets/Samples/Adaptive Performance/5.1.6/Visual Scripting/ThermalLevel.asset
+Assets/Samples/Adaptive Performance/5.1.6/Visual Scripting/ThermalNameChange.asset
+Assets/Samples/Adaptive Performance/5.1.6/Visual Scripting/ThermalTrend.asset
+Assets/Samples/Adaptive Performance/5.1.6/Visual Scripting/VisualScripting.unity
+Assets/Scriptable Objects/Transitions/Tasks/ToCombat.asset
+Assets/Scriptable Objects/Transitions/StartCombatTransition.asset
+Assets/Prefabs/UI/CombatUI_Manager.prefab
+Assets/Scriptable Objects/Levels/CombatScene_CalleCentrificada_01.asset
+Assets/Scriptable Objects/Levels/CombatScene_Snowy space_02.asset
+ProjectSettings/EditorBuildSettings.asset
+Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset
+Assets/AddressableAssetsData/AssetGroups/Schemas/Default Local Group_BundledAssetGroupSchema.asset
+Assets/AddressableAssetsData/AssetGroups/Schemas/Default Local Group_ContentUpdateGroupSchema.asset
+Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset
+ProjectSettings/VisualScriptingSettings.asset
+Assets/Prefabs/Combate/CombatScene__CalleCentrificada_01_.prefab
+Assets/Prefabs/Combate/CombatScene__Snowy space_02_ .prefab
+Assets/Prefabs/Enemies/Enemy04.prefab
+Assets/Prefabs/Enemies/Enemy05.prefab
+Assets/Prefabs/Enemies/Enemy06.prefab
+Assets/Pruebas/Scenes/ParaMostrarNestor.unity
+Assets/Pruebas/Scenes/Pruebas.unity
+Assets/Pruebas/Scenes/Pruebas_01.unity
+Assets/Abilities/Area.asset
+ProjectSettings/NotificationsSettings.asset
+ProjectSettings/XRSettings.asset
+Assets/Abilities/Direct.asset
+Assets/Abilities/Special.asset
+Assets/Prefabs/Combate/CombatScene__CalleCentrificada_.prefab
+Assets/Prefabs/Enemies/Enemy_01.prefab
+Assets/Prefabs/Player/Ally_01.prefab
+Assets/Prefabs/Player/Player_Combat_Scene_01.prefab
+Assets/Prefabs/UI/SticksUI.prefab
+Assets/Resources/GraphicsSettingsManager.prefab
+Assets/Settings/InputReader.asset
+Assets/Settings/Mobile_Renderer.asset
+Assets/Settings/PC_RPAsset.asset
+Assets/Settings/PC_Renderer.asset
+Assets/Settings/SampleSceneProfile.asset
+Assets/Settings/UniversalRenderPipelineGlobalSettings.asset
+ProjectSettings/AudioManager.asset
+ProjectSettings/DynamicsManager.asset
+ProjectSettings/EditorSettings.asset
+ProjectSettings/InputManager.asset
+ProjectSettings/NavMeshAreas.asset
+ProjectSettings/Physics2DSettings.asset
+ProjectSettings/ShaderGraphSettings.asset
+ProjectSettings/TimeManager.asset
+ProjectSettings/VFXManager.asset
+ProjectSettings/VersionControlSettings.asset
+ProjectSettings/ClusterInputManager.asset
+ProjectSettings/MemorySettings.asset
+ProjectSettings/MultiplayerManager.asset
+ProjectSettings/PresetManager.asset
+ProjectSettings/UnityConnectSettings.asset
