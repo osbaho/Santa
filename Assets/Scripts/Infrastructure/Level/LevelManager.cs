@@ -30,6 +30,14 @@ namespace Santa.Infrastructure.Level
         [Tooltip("Prefab for the camera used during liberation transition.")]
         [SerializeField] private CinemachineCamera liberationCameraPrefab;
 
+        [Header("Liberation Sequence")]
+        [Tooltip("Offset from the transition center for the liberation camera.")]
+        [SerializeField] private Vector3 liberationCameraOffset = new Vector3(0, 10, -10);
+        [Tooltip("Time in seconds to wait for the camera to focus before starting dissolve.")]
+        [SerializeField] private float cameraFocusDelaySeconds = 1.0f;
+        [Tooltip("Duration of the world dissolve animation.")]
+        [SerializeField] private float liberationDissolveDuration = 4.0f;
+
         private int currentLevelIndex = -1;
         private readonly List<GameObject> _activeGentrifiedVisuals = new();
         private readonly List<GameObject> _activeLiberatedVisuals = new();
@@ -122,7 +130,7 @@ namespace Santa.Infrastructure.Level
                 {
                     _currentLiberationCamera = Instantiate(liberationCameraPrefab);
                 }
-                _currentLiberationCamera.transform.position = currentLevel.transitionCenter + new Vector3(0, 10, -10); // Offset defaults
+                _currentLiberationCamera.transform.position = currentLevel.transitionCenter + liberationCameraOffset;
                 _currentLiberationCamera.transform.LookAt(currentLevel.transitionCenter);
                 _currentLiberationCamera.Priority = 2000; // Override everything
                 _currentLiberationCamera.gameObject.SetActive(true);
@@ -148,12 +156,12 @@ namespace Santa.Infrastructure.Level
             }
 
             // 4. Wait for focus
-            await UniTask.Delay(1000);
+            await UniTask.Delay(System.TimeSpan.FromSeconds(cameraFocusDelaySeconds));
 
             // 5. Animate Dissolve
             if (dissolveController != null)
             {
-                await dissolveController.AnimateDissolveAsync(currentLevel.transitionCenter, currentLevel.transitionRadius, 4.0f);
+                await dissolveController.AnimateDissolveAsync(currentLevel.transitionCenter, currentLevel.transitionRadius, liberationDissolveDuration);
             }
             else
             {
