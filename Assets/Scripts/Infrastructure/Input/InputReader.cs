@@ -26,9 +26,7 @@ namespace Santa.Infrastructure.Input
             if (!_actionMap.UI.enabled)
             {
                 _actionMap.UI.Enable();
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
-                GameLog.Log($"InputReader '{name}': Enabled UI action map for pointer/click processing.");
-#endif
+
             }
         }
 
