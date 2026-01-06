@@ -87,7 +87,11 @@ namespace Santa.Infrastructure.Combat
             }
             else
             {
-                GameLog.LogError($"Addressables.InstantiateAsync failed for '{encounter.CombatSceneAddress}'");
+                GameLog.LogError($"Addressables.InstantiateAsync failed for '{encounter.CombatSceneAddress}'. Status: {handle.Status}");
+                if (handle.OperationException != null)
+                {
+                    GameLog.LogException(handle.OperationException);
+                }
             }
         }
         else

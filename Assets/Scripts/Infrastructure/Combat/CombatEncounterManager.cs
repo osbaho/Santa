@@ -46,7 +46,7 @@ namespace Santa.Infrastructure.Combat
             else
             {
                 // Debug log to trace successful key retrieval
-                // GameLog.Log($"CombatEncounterManager: Requesting instance for key '{poolKey}'"); 
+                GameLog.Log($"CombatEncounterManager: Requesting instance for key '{poolKey}'");
             }
 #endif
 
