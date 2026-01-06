@@ -75,9 +75,11 @@ namespace Santa.Infrastructure.Combat
 #if UNITY_ADDRESSABLES
         if (encounter != null && !string.IsNullOrEmpty(encounter.CombatSceneAddress))
         {
+            GameLog.Log($"CombatScenePool: About to call Addressables.InstantiateAsync('{encounter.CombatSceneAddress}')");
             // Instantiates the prefab at the specified offset position
             var handle = Addressables.InstantiateAsync(encounter.CombatSceneAddress, _combatSceneOffset, Quaternion.identity, transform);
             var inst = await handle.ToUniTask();
+            GameLog.Log($"CombatScenePool: Addressables completed. Status={handle.Status}, inst={(inst != null ? inst.name : "NULL")}");
 
             if (handle.Status == AsyncOperationStatus.Succeeded && inst != null)
             {
