@@ -1366,10 +1366,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - {fileID: 11400000, guid: 7bbf3e86ccfce464b8991c3e42f02122, type: 2}
-  levelVisualsParent: {fileID: 1384250974}
+  levelVisualsParent: {fileID: 1912134297}
   useStaticBatching: 1
   dissolveController: {fileID: 1073746746}
   liberationCameraPrefab: {fileID: 4776193734473876915, guid: 1820819c01aa54b4cbe4f0b4b26546c7, type: 3}
+  liberationCameraOffset: {x: 0, y: 10, z: -10}
+  cameraFocusDelaySeconds: 1
+  liberationDissolveDuration: 4
 --- !u!4 &80191393
 Transform:
   m_ObjectHideFlags: 0
@@ -14010,6 +14013,8 @@ MonoBehaviour:
       Input:
         InputAction: {fileID: -5630151704836100654, guid: 052faaac586de48259a63d0c4782560b, type: 3}
         Gain: 80
+        LegacyInput: 
+        LegacyGain: 1
         CancelDeltaTime: 0
       InputValue: 0
       Driver:
@@ -14021,6 +14026,8 @@ MonoBehaviour:
       Input:
         InputAction: {fileID: -5630151704836100654, guid: 052faaac586de48259a63d0c4782560b, type: 3}
         Gain: 1
+        LegacyInput: 
+        LegacyGain: 1
         CancelDeltaTime: 0
       InputValue: 20
       Driver:
@@ -14032,6 +14039,8 @@ MonoBehaviour:
       Input:
         InputAction: {fileID: -423771258819551211, guid: 1d6e640e716dc4ff6989b73d02023f2b, type: 3}
         Gain: -1
+        LegacyInput: 
+        LegacyGain: 1
         CancelDeltaTime: 0
       InputValue: 0
       Driver:

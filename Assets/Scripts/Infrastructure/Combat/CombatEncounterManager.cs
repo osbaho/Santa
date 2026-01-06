@@ -43,11 +43,6 @@ namespace Santa.Infrastructure.Combat
             {
                 GameLog.LogError($"CombatEncounterManager: Pool key is null or empty for encounter '{encounter.name}'");
             }
-            else
-            {
-                // Debug log to trace successful key retrieval
-                GameLog.Log($"CombatEncounterManager: Requesting instance for key '{poolKey}'");
-            }
 #endif
 
             GameObject activeInstance = null;
