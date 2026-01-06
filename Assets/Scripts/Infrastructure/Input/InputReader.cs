@@ -65,9 +65,7 @@ namespace Santa.Infrastructure.Input
         /// </summary>
         public void RaiseInteract()
         {
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
-            GameLog.Log($"InputReader '{name}': RaiseInteract invoked.");
-#endif
+
             InteractEvent?.Invoke();
         }
 

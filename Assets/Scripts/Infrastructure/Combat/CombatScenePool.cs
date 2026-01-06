@@ -20,9 +20,9 @@ namespace Santa.Infrastructure.Combat
     {
         private IObjectResolver _resolver;
 
-        private readonly Dictionary<string, Queue<GameObject>> _pool = new Dictionary<string, Queue<GameObject>>();
-        private readonly Dictionary<string, UniTask<GameObject>> _pendingInstantiations = new Dictionary<string, UniTask<GameObject>>();
-        private readonly Vector3 _combatSceneOffset = new Vector3(0f, GameConstants.CombatScene.OffsetY, 0f);
+        private readonly Dictionary<string, Queue<GameObject>> _pool = new();
+        private readonly Dictionary<string, UniTask<GameObject>> _pendingInstantiations = new();
+        private readonly Vector3 _combatSceneOffset = new(0f, GameConstants.CombatScene.OffsetY, 0f);
 
         [Inject]
         public void Construct(IObjectResolver resolver)
