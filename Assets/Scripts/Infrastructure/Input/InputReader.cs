@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace Santa.Infrastructure.Input
 {
-    [CreateAssetMenu(fileName = "InputReader", menuName = "Santa/Input Reader ")]
+    [CreateAssetMenu(fileName = "InputReader", menuName = "Santa/Input Reader")]
     public class InputReader : ScriptableObject, @ActionMap.IPlayerActions
     {
         public event System.Action<Vector2> MoveEvent;
