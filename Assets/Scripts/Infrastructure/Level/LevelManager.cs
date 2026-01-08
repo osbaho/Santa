@@ -64,7 +64,10 @@ namespace Santa.Infrastructure.Level
                 dissolveController = FindFirstObjectByType<EnvironmentDissolveController>();
             }
             // Ensure shader starts clean
-            dissolveController?.ResetShaders();
+            if (dissolveController != null)
+            {
+                dissolveController.ResetShaders();
+            }
             // Locate EnvironmentDecorState to persist liberation changes (optional, uses scene search)
             _decorState = FindFirstObjectByType<Santa.Core.Save.EnvironmentDecorState>(FindObjectsInactive.Include);
             if (_decorState == null)
