@@ -67,7 +67,5 @@
     "*.sln": "*.csproj"
   },
   "dotnet.defaultSolution": "Santa.slnx",
-  "dotrush.roslyn.projectOrSolutionFiles": [
-    "d:\\isabe\\Documents\\Santa\\Santa.slnx"
-  ]
+  "dotrush.roslyn.projectOrSolutionFiles": ["Santa.slnx"]
 }
