@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.054
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.3773585, g: 0.35038805, b: 0.2260591, a: 1}
@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.033018887, g: 0.03743431, b: 0.6039216, a: 1}
+  m_SubtractiveShadowColor: {r: 0.09300464, g: 0.09457371, b: 0.20754719, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -1053,14 +1053,14 @@ Camera:
   m_FOVAxisMode: 0
   m_Iso: 200
   m_ShutterSpeed: 0.005
-  m_Aperture: 16
+  m_Aperture: 28
   m_FocusDistance: 10
-  m_FocalLength: 13.858138
+  m_FocalLength: 20.784609
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
   m_Anamorphism: 0
-  m_SensorSize: {x: 21.946, y: 16.002}
+  m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -1096,8 +1096,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 334086682}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.00012103976, y: -0.9990444, z: 0.04361924, w: -0.002772265}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0.42}
+  m_LocalRotation: {x: 0.2534013, y: 0.00000005068951, z: -0.000000013278172, w: 0.9673613}
+  m_LocalPosition: {x: 27.8987, y: 2.4325, z: 63.76899}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8621,8 +8621,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7189054426783389656, guid: 8a65ddd3940b1084f8386e4dfe8a0120, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1501967
+      objectReference: {fileID: 0}
+    - target: {fileID: 7189054426783389656, guid: 8a65ddd3940b1084f8386e4dfe8a0120, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7189054426783389656, guid: 8a65ddd3940b1084f8386e4dfe8a0120, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.11
       objectReference: {fileID: 0}
     - target: {fileID: 8059699236306045113, guid: 8a65ddd3940b1084f8386e4dfe8a0120, type: 3}
       propertyPath: m_Name
