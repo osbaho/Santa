@@ -69,7 +69,11 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+<<<<<<< HEAD
   - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+=======
+  - {fileID: -805459160261079694, guid: 131a2e8f19cf24dfa99e8dee7859949a, type: 3}
+>>>>>>> origin/odio_github
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -128,10 +132,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3319e7c983239ff418e0d367ca8a08af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+<<<<<<<< HEAD:Assets/Prefabs/Player/Player_Combat.prefab
+=======
+>>>>>>> origin/odio_github
   health:
     maxValue: 100
     currentValue: 0
 --- !u!114 &4109587412847692036
+<<<<<<< HEAD
+========
+  combatSceneAddress: CombatArena_02
+  combatCamera: {fileID: 0}
+  autoPrewarm: 0
+  prewarmCount: 1
+  releaseAddressablesInstances: 0
+--- !u!114 &4560103486098299331
+>>>>>>>> origin/odio_github:Assets/Prefabs/Enemies/ExplorationEnemy_02.prefab
+=======
+>>>>>>> origin/odio_github
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -64,6 +64,7 @@ namespace Santa.Presentation.Combat
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
             GameLog.LogVerbose(Santa.Core.Config.LogMessages.CombatUI.ConstructCalled);
 #endif
+<<<<<<< HEAD
             InitializeServiceConnection(combatService);
         }
 
@@ -78,6 +79,13 @@ namespace Santa.Presentation.Combat
 
                 // If already in a phase, update immediately
                 HandlePhaseChanged(_combatService.CurrentPhase);
+=======
+            _combatService = combatService;
+
+            if (isActiveAndEnabled)
+            {
+                InitializeServiceConnection();
+>>>>>>> origin/odio_github
             }
         }
 
@@ -104,10 +112,15 @@ namespace Santa.Presentation.Combat
 
             // Subscribe to ability requests from buttons
             _actionButtons.OnAbilityRequested += HandleAbilityRequested;
+<<<<<<< HEAD
+=======
+            _actionButtons.OnAbilitiesLoaded += HandleAbilitiesLoaded;
+>>>>>>> origin/odio_github
         }
 
         private void OnEnable()
         {
+<<<<<<< HEAD
             if (_combatService != null)
             {
                 _combatService.OnPhaseChanged += HandlePhaseChanged;
@@ -119,6 +132,35 @@ namespace Santa.Presentation.Combat
 
 
 
+=======
+            InitializeServiceConnection();
+        }
+
+        private void InitializeServiceConnection()
+        {
+            if (_combatService != null)
+            {
+                // Ensure we don't subscribe twice
+                _combatService.OnPhaseChanged -= HandlePhaseChanged;
+                _combatService.OnPhaseChanged += HandlePhaseChanged;
+
+                // Only handle phase immediately if abilities have been loaded
+                if (_actionButtons != null && _actionButtons.AreAbilitiesLoaded)
+                {
+                    HandlePhaseChanged(_combatService.CurrentPhase);
+                }
+            }
+            else
+            {
+                // Late injection: UIManager injects after instantiating the prefab
+                if (actionButtonsPanel != null) actionButtonsPanel.SetActive(false);
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+                GameLog.LogVerbose(Santa.Core.Config.LogMessages.CombatUI.WaitingForService, this);
+#endif
+            }
+        }
+
+>>>>>>> origin/odio_github
         private void OnDisable()
         {
             if (_combatService != null)
@@ -138,6 +180,10 @@ namespace Santa.Presentation.Combat
             if (_actionButtons != null)
             {
                 _actionButtons.OnAbilityRequested -= HandleAbilityRequested;
+<<<<<<< HEAD
+=======
+                _actionButtons.OnAbilitiesLoaded -= HandleAbilitiesLoaded;
+>>>>>>> origin/odio_github
             }
         }
 
@@ -232,6 +278,7 @@ namespace Santa.Presentation.Combat
             }
         }
 
+<<<<<<< HEAD
         private void HandleAbilityRequested(Ability ability, GameObject primaryTarget)
         {
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
@@ -301,6 +348,106 @@ namespace Santa.Presentation.Combat
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
                 GameLog.LogError(Santa.Core.Config.LogMessages.CombatUI.TargetSubmitFailed);
 #endif
+=======
+        private void HandleAbilitiesLoaded()
+        {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            GameLog.LogVerbose("CombatUI: Abilities loaded event received. Refreshing UI state.");
+#endif
+            // Re-evaluate the current phase to enable buttons if we are in Selection
+            if (_combatService != null)
+            {
+                HandlePhaseChanged(_combatService.CurrentPhase);
+            }
+        }
+
+        private void HandleAbilityRequested(Ability ability, GameObject primaryTarget)
+        {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            GameLog.LogVerbose($"CombatUI: Ability requested - {(ability != null ? ability.AbilityName : "NULL")}");
+#endif
+
+            if (ability == null || _combatService == null) return;
+
+            // Only allow initiating abilities during the Selection phase
+            if (_combatService.CurrentPhase != CombatPhase.Selection)
+            {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+                GameLog.LogWarning($"Cannot request ability '{ability.AbilityName}': combat is not in Selection phase (current: {_combatService.CurrentPhase}).");
+#endif
+                return;
+            }
+
+            // If we are already waiting for a target, clicking a button should cancel targeting
+            if (_pendingAbility != null)
+            {
+>>>>>>> origin/odio_github
+                CancelTargetingMode();
+                return;
+            }
+
+<<<<<<< HEAD
+            _combatService.SubmitPlayerAction(_pendingAbility, target);
+
+            // Exit targeting mode
+            _pendingAbility = null;
+            if (statusText != null)
+            {
+                statusText.text = "";
+            }
+
+            // Restore UI raycast blocking
+            if (CanvasGroup != null) CanvasGroup.blocksRaycasts = true;
+        }
+
+        private void CancelTargetingMode()
+        {
+=======
+            if (ability.Targeting.Style == TargetingStyle.SingleEnemy)
+            {
+                // Enter targeting mode
+                _pendingAbility = ability;
+
+                if (_actionButtons != null)
+                {
+                    _actionButtons.SetButtonsInteractable(false);
+                }
+
+                if (statusText != null)
+                {
+                    statusText.text = Santa.Core.Config.UIStrings.SelectTarget;
+                }
+
+                // Make the entire UI panel non-blocking for raycasts
+                if (CanvasGroup != null) CanvasGroup.blocksRaycasts = false;
+
+                // Inform the combat manager that we're entering targeting
+                _combatService.SubmitPlayerAction(ability, null);
+            }
+            else
+            {
+                // For non-targeted abilities, submit immediately
+                _combatService.SubmitPlayerAction(ability, null);
+            }
+        }
+
+        /// <summary>
+        /// Called by EnemyTarget when a target is selected during targeting mode.
+        /// </summary>
+        public void OnTargetSelected(GameObject target)
+        {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            GameLog.LogVerbose($"CombatUI: Target selected - {(target != null ? target.name : "NULL")}");
+#endif
+
+            if (_pendingAbility == null) return;
+
+            // Ensure the combat manager is in Targeting phase
+            if (_combatService == null || _combatService.CurrentPhase != CombatPhase.Targeting)
+            {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+                GameLog.LogError(Santa.Core.Config.LogMessages.CombatUI.TargetSubmitFailed);
+#endif
                 CancelTargetingMode();
                 return;
             }
@@ -320,6 +467,7 @@ namespace Santa.Presentation.Combat
 
         private void CancelTargetingMode()
         {
+>>>>>>> origin/odio_github
             bool hadPendingAbility = _pendingAbility != null;
             _pendingAbility = null;
 

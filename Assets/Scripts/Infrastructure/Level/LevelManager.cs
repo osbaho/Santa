@@ -30,6 +30,17 @@ namespace Santa.Infrastructure.Level
         [Tooltip("Prefab for the camera used during liberation transition.")]
         [SerializeField] private CinemachineCamera liberationCameraPrefab;
 
+<<<<<<< HEAD
+=======
+        [Header("Liberation Sequence")]
+        [Tooltip("Offset from the transition center for the liberation camera.")]
+        [SerializeField] private Vector3 liberationCameraOffset = new Vector3(0, 10, -10);
+        [Tooltip("Time in seconds to wait for the camera to focus before starting dissolve.")]
+        [SerializeField] private float cameraFocusDelaySeconds = 1.0f;
+        [Tooltip("Duration of the world dissolve animation.")]
+        [SerializeField] private float liberationDissolveDuration = 4.0f;
+
+>>>>>>> origin/odio_github
         private int currentLevelIndex = -1;
         private readonly List<GameObject> _activeGentrifiedVisuals = new();
         private readonly List<GameObject> _activeLiberatedVisuals = new();
@@ -56,7 +67,14 @@ namespace Santa.Infrastructure.Level
                 dissolveController = FindFirstObjectByType<EnvironmentDissolveController>();
             }
             // Ensure shader starts clean
+<<<<<<< HEAD
             dissolveController?.ResetShaders();
+=======
+            if (dissolveController != null)
+            {
+                dissolveController.ResetShaders();
+            }
+>>>>>>> origin/odio_github
             // Locate EnvironmentDecorState to persist liberation changes (optional, uses scene search)
             _decorState = FindFirstObjectByType<Santa.Core.Save.EnvironmentDecorState>(FindObjectsInactive.Include);
             if (_decorState == null)
@@ -122,7 +140,11 @@ namespace Santa.Infrastructure.Level
                 {
                     _currentLiberationCamera = Instantiate(liberationCameraPrefab);
                 }
+<<<<<<< HEAD
                 _currentLiberationCamera.transform.position = currentLevel.transitionCenter + currentLevel.cameraOffset;
+=======
+                _currentLiberationCamera.transform.position = currentLevel.transitionCenter + liberationCameraOffset;
+>>>>>>> origin/odio_github
                 _currentLiberationCamera.transform.LookAt(currentLevel.transitionCenter);
                 _currentLiberationCamera.Priority = 2000; // Override everything
                 _currentLiberationCamera.gameObject.SetActive(true);
@@ -148,12 +170,20 @@ namespace Santa.Infrastructure.Level
             }
 
             // 4. Wait for focus
+<<<<<<< HEAD
             await UniTask.Delay(2000);
+=======
+            await UniTask.Delay(System.TimeSpan.FromSeconds(cameraFocusDelaySeconds));
+>>>>>>> origin/odio_github
 
             // 5. Animate Dissolve
             if (dissolveController != null)
             {
+<<<<<<< HEAD
                 await dissolveController.AnimateDissolveAsync(currentLevel.transitionCenter, currentLevel.transitionRadius, 4.0f);
+=======
+                await dissolveController.AnimateDissolveAsync(currentLevel.transitionCenter, currentLevel.transitionRadius, liberationDissolveDuration);
+>>>>>>> origin/odio_github
             }
             else
             {
@@ -273,6 +303,7 @@ namespace Santa.Infrastructure.Level
             }
         }
 
+<<<<<<< HEAD
         private LevelAnchor FindLevelAnchor(LevelData levelData)
         {
             LevelAnchor[] anchors = FindObjectsByType<LevelAnchor>(FindObjectsInactive.Include, FindObjectsSortMode.None);
@@ -291,6 +322,12 @@ namespace Santa.Infrastructure.Level
             // Find the level anchor in the scene, or fall back to the manager's parent.
             LevelAnchor anchor = FindLevelAnchor(levelData);
             Transform parent = anchor != null ? anchor.transform : (levelVisualsParent != null ? levelVisualsParent : transform);
+=======
+        private async UniTask InstantiateLevelVisualsAsync(LevelData levelData)
+        {
+            // Use the specified parent if available, otherwise use this manager's transform.
+            Transform parent = levelVisualsParent != null ? levelVisualsParent : transform;
+>>>>>>> origin/odio_github
 
             if (useStaticBatching)
             {

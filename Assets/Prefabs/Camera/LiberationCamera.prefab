@@ -56,7 +56,11 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
+<<<<<<< HEAD
     FieldOfView: 40
+=======
+    FieldOfView: 22.401596
+>>>>>>> origin/odio_github
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
