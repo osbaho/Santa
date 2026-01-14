@@ -3,20 +3,32 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-    // Función para cargar la escena del juego
+    private const string GameplaySceneName = "Gameplay";
+    private const string MainMenuSceneName = "Menu Principal";
+
+    /// <summary>
+    /// Carga la escena del juego.
+    /// </summary>
     public void IniciarJuego()
     {
-        SceneManager.LoadScene("Gameplay");
+        SceneManager.LoadScene(GameplaySceneName);
     }
 
-    public void IrASalida()
+    /// <summary>
+    /// Carga la escena del menú principal.
+    /// </summary>
+    public void IrAMenuPrincipal()
     {
-        SceneManager.LoadScene("Menu Principal");
+        SceneManager.LoadScene(MainMenuSceneName);
     }
 
     public void SalirDelJuego()
     {
         Debug.Log("Saliendo del juego...");
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
         Application.Quit();
+#endif
     }
 }

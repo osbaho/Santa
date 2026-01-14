@@ -25,7 +25,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-<<<<<<< HEAD
   - m_GUID: 4fa91a887795d5a4ab2e778f8db1836e
     m_Address: Upgrade01
     m_ReadOnly: 0
@@ -41,8 +40,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-=======
->>>>>>> origin/odio_github
   - m_GUID: 6e47260b86da2ea4da16417c04da3a96
     m_Address: Speed
     m_ReadOnly: 0
@@ -50,6 +47,21 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 964847228e7871142bba553f3fe9fbf8
     m_Address: MissChance_Reduce
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bbc646aa358d8b14eafcb27887cd9e11
+    m_Address: Upgrade04
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf795702ac2d1954b91113b2cd4ae237
+    m_Address: Upgrade02
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e92961705622b644f8d75eeba7cec7a8
+    m_Address: Upgrade03
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

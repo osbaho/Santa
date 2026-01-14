@@ -18,9 +18,10 @@ namespace Santa.Core
         /// <param name="healthCache">Cached health controllers for performance optimization.</param>
         /// <param name="upgradeService">Service providing player stat modifiers from upgrades.</param>
         void Execute(
-            PendingAction action, 
-            IReadOnlyList<GameObject> allCombatants, 
-            IReadOnlyDictionary<GameObject, IHealthController> healthCache, 
-            IUpgradeService upgradeService);
+            PendingAction action,
+            IReadOnlyList<GameObject> allCombatants,
+            IReadOnlyDictionary<GameObject, IHealthController> healthCache,
+            IUpgradeService upgradeService,
+            ICombatLogService combatLogService);
     }
 }
