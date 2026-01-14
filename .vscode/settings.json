@@ -66,8 +66,5 @@
     "explorer.fileNesting.patterns": {
         "*.sln": "*.csproj"
     },
-    "dotrush.roslyn.projectOrSolutionFiles": [
-        "Santa.slnx"
-    ],
     "dotnet.defaultSolution": "Santa.slnx"
 }

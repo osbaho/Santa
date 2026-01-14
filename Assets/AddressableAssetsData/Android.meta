@@ -1,16 +1,8 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: fc9fcfbe8aba89647823ccfba282a3c7
-=======
-<<<<<<<< HEAD:Assets/Materials/Gentrified.meta
-guid: b4e4ad3ee8a905f4daf1da9f725ede04
-========
-guid: b633aec770b7d9a4b946d69d60cf28f0
->>>>>>>> origin/odio_github:Assets/AddressableAssetsData/Android.meta
->>>>>>> origin/odio_github
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  userData:
+  assetBundleName:
+  assetBundleVariant:
