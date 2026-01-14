@@ -39,7 +39,11 @@ namespace Santa.Presentation.Combat
         /// <summary>
         /// Gets the current player AP value, or 0 if player AP is not subscribed.
         /// </summary>
+<<<<<<< HEAD
         public int CurrentPlayerAP => ((UnityEngine.Object)_playerAP) != null ? _playerAP.CurrentValue : 0;
+=======
+        public int CurrentPlayerAP => (_playerAP as UnityEngine.Object) != null ? _playerAP.CurrentValue : 0;
+>>>>>>> origin/odio_github
 
         /// <summary>
         /// Initializes the stats display with references to UI elements.

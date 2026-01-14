@@ -3,15 +3,16 @@ using Cysharp.Threading.Tasks;
 using Santa.Core;
 using Santa.Domain.Combat;
 using Santa.Infrastructure.Combat;
-using AbilityUpgrade = Santa.Domain.Combat.AbilityUpgrade;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using VContainer;
+using AbilityUpgrade = Santa.Domain.Combat.AbilityUpgrade;
 
 namespace Santa.Presentation.Upgrades
 {
 
+<<<<<<< HEAD
 /// <summary>
 /// Manages the UI screen for choosing an ability upgrade after winning a battle.
 /// Refactored to work as a prefab with modular card components.
@@ -84,98 +85,88 @@ public class UpgradeUI : MonoBehaviour, IUpgradeUI
             closeButton.onClick.RemoveListener(OnCloseButtonClicked);
     }
 
+=======
+>>>>>>> origin/odio_github
     /// <summary>
-    /// Configures the UI with two upgrade options and displays them.
+    /// Manages the UI screen for choosing an ability upgrade after winning a battle.
+    /// Refactored to work as a prefab with modular card components.
     /// </summary>
-    public void ShowUpgrades(AbilityUpgrade upgrade1, AbilityUpgrade upgrade2)
+    public class UpgradeUI : MonoBehaviour, IUpgradeUI
     {
-        if (upgrade1 == null || upgrade2 == null)
+        [Header("Panel References")]
+        [SerializeField] private GameObject upgradePanel;
+        [SerializeField] private CanvasGroup canvasGroup;
+
+        [Header("Card Components")]
+        [SerializeField] private UpgradeCardUI option1Card;
+        [SerializeField] private UpgradeCardUI option2Card;
+
+        [Header("Optional Elements")]
+        [SerializeField] private TextMeshProUGUI titleText;
+        [SerializeField] private Button closeButton; // Optional close without selection
+
+        [Header("Animation Settings")]
+        [SerializeField] private float fadeInDuration = 0.3f;
+
+        private IUpgradeService _upgradeService;
+        private ILevelService _levelService;
+        private ICombatTransitionService _combatTransitionService;
+        private TurnBasedCombatManager _combatManager;
+
+        // Track active fade cancellation to prevent overlapping animations
+        private CancellationTokenSource _fadeCTS;
+
+        [Inject]
+        public void Construct(IUpgradeService upgradeService, ILevelService levelService, ICombatTransitionService combatTransitionService, TurnBasedCombatManager combatManager = null)
         {
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
-            GameLog.LogWarning("Cannot show upgrades: one or both upgrades are null.");
-#endif
-            return;
+            _upgradeService = upgradeService;
+            _levelService = levelService;
+            _combatTransitionService = combatTransitionService;
+            _combatManager = combatManager;
         }
 
-        // Configure cards
-        option1Card?.Setup(upgrade1);
-        option2Card?.Setup(upgrade2);
-
-        // Set title via centralized UI strings
-        if (titleText != null)
+        private void Awake()
         {
-            titleText.text = Santa.Core.Config.UIStrings.UpgradeTitle;
-        }
+            // Subscribe to card events
+            if (option1Card != null)
+                option1Card.OnUpgradeSelected += OnUpgradeChosen;
 
-        // Mostrar el panel
-        Show();
-    }
+            if (option2Card != null)
+                option2Card.OnUpgradeSelected += OnUpgradeChosen;
 
-    /// <summary>
-    /// Shows the panel with a smooth fade-in.
-    /// </summary>
-    private void Show()
-    {
-        if (upgradePanel != null)
-            upgradePanel.SetActive(true);
+            // Optional close button
+            if (closeButton != null)
+                closeButton.onClick.AddListener(OnCloseButtonClicked);
 
-        // Fade in with CanvasGroup
-        if (canvasGroup != null)
-        {
-            // Stop only the active fade
-            _fadeCTS?.Cancel();
-            _fadeCTS = new CancellationTokenSource();
-            FadeIn(_fadeCTS.Token).Forget();
-        }
-    }
+            // Ensure canvas group exists
+            if (canvasGroup == null && upgradePanel != null)
+                canvasGroup = upgradePanel.GetComponent<CanvasGroup>();
 
-    /// <summary>
-    /// Hides the panel immediately.
-    /// </summary>
-    private void HideImmediate()
-    {
-        if (upgradePanel != null)
-            upgradePanel.SetActive(false);
-
-        if (canvasGroup != null)
-        {
-            canvasGroup.alpha = 0;
-            canvasGroup.interactable = false;
-            canvasGroup.blocksRaycasts = false;
-        }
-
-        // Clear fade CTS reference
-        _fadeCTS?.Cancel();
-        _fadeCTS = null;
-    }
-
-    /// <summary>
-    /// Hides the panel with a smooth fade-out.
-    /// </summary>
-    private void Hide()
-    {
-        if (canvasGroup != null)
-        {
-            // Stop only the active fade
-            _fadeCTS?.Cancel();
-            _fadeCTS = new CancellationTokenSource();
-            FadeOut(_fadeCTS.Token).Forget();
-        }
-        else
-        {
+            // Start hidden
             HideImmediate();
         }
-    }
 
-    private async UniTaskVoid FadeIn(CancellationToken token)
-    {
-        try
+        private void OnDestroy()
         {
-            float elapsed = 0f;
-            canvasGroup.interactable = false; // Disable during animation
+            // Unsubscribe to avoid memory leaks
+            if (option1Card != null)
+                option1Card.OnUpgradeSelected -= OnUpgradeChosen;
 
-            while (elapsed < fadeInDuration)
+            if (option2Card != null)
+                option2Card.OnUpgradeSelected -= OnUpgradeChosen;
+
+            if (closeButton != null)
+                closeButton.onClick.RemoveListener(OnCloseButtonClicked);
+        }
+
+        /// <summary>
+        /// Configures the UI with two upgrade options and displays them.
+        /// </summary>
+        public void ShowUpgrades(AbilityUpgrade upgrade1, AbilityUpgrade upgrade2)
+        {
+            if (upgrade1 == null || upgrade2 == null)
             {
+<<<<<<< HEAD
                 if (token.IsCancellationRequested) return;
 
                 elapsed += Time.unscaledDeltaTime;
@@ -183,36 +174,22 @@ public class UpgradeUI : MonoBehaviour, IUpgradeUI
                 canvasGroup.alpha = Mathf.Clamp01(elapsed / fadeInDuration);
                 await UniTask.Yield(PlayerLoopTiming.Update);
                 if (canvasGroup == null) return;
+=======
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+                GameLog.LogWarning("Cannot show upgrades: one or both upgrades are null.");
+#endif
+                return;
+>>>>>>> origin/odio_github
             }
 
-            canvasGroup.alpha = 1f;
-            canvasGroup.interactable = true;
-            canvasGroup.blocksRaycasts = true;
-        }
-        catch (System.OperationCanceledException)
-        {
-            // Expected during scene transitions
-        }
-        catch (System.Exception ex)
-        {
-            GameLog.LogError($"UpgradeUI.FadeIn: Exception: {ex.Message}");
-            GameLog.LogException(ex);
-            // Ensure UI is in a valid state
-            canvasGroup.alpha = 1f;
-            canvasGroup.interactable = true;
-            canvasGroup.blocksRaycasts = true;
-        }
-    }
+            // Configure cards
+            if (option1Card != null) option1Card.Setup(upgrade1);
+            if (option2Card != null) option2Card.Setup(upgrade2);
 
-    private async UniTaskVoid FadeOut(CancellationToken token)
-    {
-        try
-        {
-            float elapsed = 0f;
-            canvasGroup.interactable = false;
-
-            while (elapsed < fadeInDuration)
+            // Set title via centralized UI strings
+            if (titleText != null)
             {
+<<<<<<< HEAD
                 if (token.IsCancellationRequested) return;
 
                 elapsed += Time.unscaledDeltaTime;
@@ -220,99 +197,231 @@ public class UpgradeUI : MonoBehaviour, IUpgradeUI
                 canvasGroup.alpha = Mathf.Clamp01(1f - (elapsed / fadeInDuration));
                 await UniTask.Yield(PlayerLoopTiming.Update);
                 if (canvasGroup == null) return;
+=======
+                titleText.text = Santa.Core.Config.UIStrings.UpgradeTitle;
+>>>>>>> origin/odio_github
             }
 
-            canvasGroup.alpha = 0f;
-            canvasGroup.blocksRaycasts = false;
+            // Mostrar el panel
+            Show();
+        }
 
+        /// <summary>
+        /// Shows the panel with a smooth fade-in.
+        /// </summary>
+        private void Show()
+        {
+            if (upgradePanel != null)
+                upgradePanel.SetActive(true);
+
+            // Fade in with CanvasGroup
+            if (canvasGroup != null)
+            {
+                // Stop only the active fade
+                _fadeCTS?.Cancel();
+                _fadeCTS = new CancellationTokenSource();
+                FadeIn(_fadeCTS.Token).Forget();
+            }
+        }
+
+        /// <summary>
+        /// Hides the panel immediately.
+        /// </summary>
+        private void HideImmediate()
+        {
             if (upgradePanel != null)
                 upgradePanel.SetActive(false);
-        }
-        catch (System.OperationCanceledException)
-        {
-            // Expected during scene transitions
-        }
-        catch (System.Exception ex)
-        {
-            GameLog.LogError($"UpgradeUI.FadeOut: Exception: {ex.Message}");
-            GameLog.LogException(ex);
-            // Ensure UI is hidden
-            canvasGroup.alpha = 0f;
-            canvasGroup.blocksRaycasts = false;
-            if (upgradePanel != null)
-                upgradePanel.SetActive(false);
-        }
-    }
 
-    /// <summary>
-    /// Callback when an upgrade is selected from any card.
-    /// </summary>
-    private void OnUpgradeChosen(AbilityUpgrade chosenUpgrade)
-    {
-        if (chosenUpgrade == null)
+            if (canvasGroup != null)
+            {
+                canvasGroup.alpha = 0;
+                canvasGroup.interactable = false;
+                canvasGroup.blocksRaycasts = false;
+            }
+
+            // Clear fade CTS reference
+            _fadeCTS?.Cancel();
+            _fadeCTS = null;
+        }
+
+        /// <summary>
+        /// Hides the panel with a smooth fade-out.
+        /// </summary>
+        private void Hide()
+        {
+            if (canvasGroup != null)
+            {
+                // Stop only the active fade
+                _fadeCTS?.Cancel();
+                _fadeCTS = new CancellationTokenSource();
+                FadeOut(_fadeCTS.Token).Forget();
+            }
+            else
+            {
+                HideImmediate();
+            }
+        }
+
+        private async UniTaskVoid FadeIn(CancellationToken token)
+        {
+            try
+            {
+                float elapsed = 0f;
+                if (canvasGroup != null)
+                    canvasGroup.interactable = false; // Disable during animation
+
+                while (elapsed < fadeInDuration)
+                {
+                    if (token.IsCancellationRequested) return;
+                    if (canvasGroup == null) return; // FIX
+
+                    elapsed += Time.unscaledDeltaTime;
+                    canvasGroup.alpha = Mathf.Clamp01(elapsed / fadeInDuration);
+                    await UniTask.Yield(PlayerLoopTiming.Update);
+                }
+
+                if (canvasGroup != null)
+                {
+                    canvasGroup.alpha = 1f;
+                    canvasGroup.interactable = true;
+                    canvasGroup.blocksRaycasts = true;
+                }
+            }
+            catch (System.OperationCanceledException)
+            {
+                // Expected during scene transitions
+            }
+            catch (System.Exception ex)
+            {
+                if (canvasGroup != null && !(ex is MissingReferenceException))
+                {
+                    GameLog.LogError($"UpgradeUI.FadeIn: Exception: {ex.Message}");
+                    GameLog.LogException(ex);
+                    // Ensure UI is in a valid state
+                    canvasGroup.alpha = 1f;
+                    canvasGroup.interactable = true;
+                    canvasGroup.blocksRaycasts = true;
+                }
+            }
+        }
+
+        private async UniTaskVoid FadeOut(CancellationToken token)
+        {
+            try
+            {
+                float elapsed = 0f;
+                if (canvasGroup != null)
+                    canvasGroup.interactable = false;
+
+                while (elapsed < fadeInDuration)
+                {
+                    if (token.IsCancellationRequested) return;
+                    if (canvasGroup == null) return; // FIX
+
+                    elapsed += Time.unscaledDeltaTime;
+                    canvasGroup.alpha = Mathf.Clamp01(1f - (elapsed / fadeInDuration));
+                    await UniTask.Yield(PlayerLoopTiming.Update);
+                }
+
+                if (canvasGroup != null)
+                {
+                    canvasGroup.alpha = 0f;
+                    canvasGroup.blocksRaycasts = false;
+                }
+
+                if (upgradePanel != null)
+                    upgradePanel.SetActive(false);
+            }
+            catch (System.OperationCanceledException)
+            {
+                // Expected during scene transitions
+            }
+            catch (System.Exception ex)
+            {
+                if (canvasGroup != null && !(ex is MissingReferenceException))
+                {
+                    GameLog.LogError($"UpgradeUI.FadeOut: Exception: {ex.Message}");
+                    GameLog.LogException(ex);
+                    // Ensure UI is hidden
+                    canvasGroup.alpha = 0f;
+                    canvasGroup.blocksRaycasts = false;
+                }
+                if (upgradePanel != null && !(ex is MissingReferenceException))
+                {
+                    upgradePanel.SetActive(false);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Callback when an upgrade is selected from any card.
+        /// </summary>
+        private void OnUpgradeChosen(AbilityUpgrade chosenUpgrade)
+        {
+            if (chosenUpgrade == null)
+            {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+                GameLog.LogWarning("Chosen upgrade is null.");
+#endif
+                return;
+            }
+
+            // Disable both cards to avoid double-click
+            if (option1Card != null) option1Card.SetInteractable(false);
+            if (option2Card != null) option2Card.SetInteractable(false);
+
+            // 1. Apply the stat upgrade
+            _upgradeService?.ApplyUpgrade(chosenUpgrade);
+
+            // 2. Hide the UI
+            Hide();
+
+            // 3. Liberate the current level (change visuals)
+            _levelService?.LiberateCurrentLevel();
+
+            // 4. End the combat state
+            _combatTransitionService?.EndCombat(true);
+
+            // 5. Deactivate TurnBasedCombatManager now that upgrade is selected
+            // This was previously happening too early in TurnBasedCombatManager.EndCombat()
+            var combatManager = _combatManager;
+            if (combatManager == null)
+            {
+                combatManager = FindFirstObjectByType<TurnBasedCombatManager>();
+            }
+            if (combatManager != null)
+            {
+                combatManager.gameObject.SetActive(false);
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+                GameLog.Log("UpgradeUI: Deactivated TurnBasedCombatManager after upgrade selection.");
+#endif
+            }
+
+            // 6. Prepare the next level/area
+            _levelService?.AdvanceToNextLevel();
+        }
+
+        /// <summary>
+        /// Callback to close without choosing (optional, useful for testing).
+        /// </summary>
+        private void OnCloseButtonClicked()
         {
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
-            GameLog.LogWarning("Chosen upgrade is null.");
+            GameLog.LogWarning("Upgrade selection closed without choosing.");
 #endif
-            return;
-        }
+            Hide();
+            _combatTransitionService?.EndCombat(true);
 
-        // Disable both cards to avoid double-click
-        option1Card?.SetInteractable(false);
-        option2Card?.SetInteractable(false);
-
-        // 1. Apply the stat upgrade
-        _upgradeService?.ApplyUpgrade(chosenUpgrade);
-
-        // 2. Hide the UI
-        Hide();
-
-        // 3. Liberate the current level (change visuals)
-        _levelService?.LiberateCurrentLevel();
-
-        // 4. End the combat state
-        _combatTransitionService?.EndCombat(true);
-
-        // 5. Deactivate TurnBasedCombatManager now that upgrade is selected
-        // This was previously happening too early in TurnBasedCombatManager.EndCombat()
-        var combatManager = _combatManager;
-        if (combatManager == null)
-        {
-            combatManager = FindFirstObjectByType<TurnBasedCombatManager>();
-        }
-        if (combatManager != null)
-        {
-            combatManager.gameObject.SetActive(false);
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
-            GameLog.Log("UpgradeUI: Deactivated TurnBasedCombatManager after upgrade selection.");
-#endif
-        }
-
-        // 6. Prepare the next level/area
-        _levelService?.AdvanceToNextLevel();
-    }
-
-    /// <summary>
-    /// Callback to close without choosing (optional, useful for testing).
-    /// </summary>
-    private void OnCloseButtonClicked()
-    {
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
-        GameLog.LogWarning("Upgrade selection closed without choosing.");
-#endif
-        Hide();
-        _combatTransitionService?.EndCombat(true);
-
-        // Deactivate combat manager when closing without selection
-        var combatManager = _combatManager;
-        if (combatManager == null)
-        {
-            combatManager = FindFirstObjectByType<TurnBasedCombatManager>();
-        }
-        if (combatManager != null)
-        {
-            combatManager.gameObject.SetActive(false);
+            // Deactivate combat manager when closing without selection
+            var combatManager = _combatManager;
+            if (combatManager == null)
+            {
+                combatManager = FindFirstObjectByType<TurnBasedCombatManager>();
+            }
+            if (combatManager != null)
+            {
+                combatManager.gameObject.SetActive(false);
+            }
         }
     }
-}
 }

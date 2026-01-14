@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/Decor/American/Sled.prefab.meta
 guid: 5b8e6159679ca3447a954265e2bd68d0
+========
+guid: 0fa39db42346a6c48989ee984faf04ec
+>>>>>>>> origin/odio_github:Assets/Prefabs/Decor/American/Enemy_02/Snow_02.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

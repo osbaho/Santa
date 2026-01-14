@@ -45,6 +45,7 @@ namespace Santa.Editor.PropertyDrawers
             {
                 property.stringValue = _options[newIndex];
             }
+<<<<<<< HEAD
             else if (index == -1 && !string.IsNullOrEmpty(currentVal)) 
             {
                 // If current value is not in options, show it but maybe warn (or just let user pick from valid list to fix it)
@@ -53,6 +54,9 @@ namespace Santa.Editor.PropertyDrawers
                 // Just let the popup start as unselected/mixed if invalid.
                  EditorGUI.PropertyField(position, property, label); // Fallback to text field if invalid so they can see what it was? No, request was robust dropdown.
             }
+=======
+
+>>>>>>> origin/odio_github
         }
 
         private void InitializeOptions()

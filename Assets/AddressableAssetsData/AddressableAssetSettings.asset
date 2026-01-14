@@ -12,10 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468a46d0ae32c3544b7d98094e6448a9, type: 3}
   m_Name: AddressableAssetSettings
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   m_DefaultGroup: 338ec3c7456128340bcb7197816cf89a
   m_currentHash:
     serializedVersion: 2
     Hash: df3461faad251dc6339e63e88c4c2fa0
+=======
+  m_DefaultGroup: e6e8249e53d551a4db149452b73670f2
+  m_currentHash:
+    serializedVersion: 2
+    Hash: 577403aa05efff56d791df0e4ca56a33
+>>>>>>> origin/odio_github
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_CatalogRequestsTimeout: 0
@@ -60,15 +67,31 @@ MonoBehaviour:
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
+<<<<<<< HEAD
   - {fileID: 11400000, guid: 387d84e0ecf7f0a4387094fa6ec6ac69, type: 2}
   - {fileID: 11400000, guid: 2cbf9fbfd8626e046997e7c36f850b6c, type: 2}
+=======
+>>>>>>> origin/odio_github
   - {fileID: 11400000, guid: 992c382518fedce4a9bc3c4a9fdf12c1, type: 2}
   - {fileID: 11400000, guid: 5ddacc606898371468c3fcfc0243f62b, type: 2}
   - {fileID: 11400000, guid: 4366874eeab74e2418d9c746e44f67be, type: 2}
   - {fileID: 11400000, guid: 5393dc9dbb67cb4438b6f92e9765f009, type: 2}
+<<<<<<< HEAD
   - {fileID: 11400000, guid: c78d9d68df443c144aee280a55a2d7a3, type: 2}
   - {fileID: 11400000, guid: 96ddb3a5db83d684dafb5621a36735d8, type: 2}
   - {fileID: 11400000, guid: 7974ad8223873e74db21f04d0dafc0d5, type: 2}
+=======
+  - {fileID: 11400000, guid: 9f9c332161fdd97449e7629c88b9a15b, type: 2}
+  - {fileID: 11400000, guid: cd8131369e433b843a1b19b944396a63, type: 2}
+  - {fileID: 11400000, guid: be0c19eef63300e4a8dab24f5a2eb762, type: 2}
+  - {fileID: 11400000, guid: e5e72e0cea7b2bc4486d9c7d243a8a01, type: 2}
+  - {fileID: 11400000, guid: 4b4f6b7206b9a1547a956c83696b9de5, type: 2}
+  - {fileID: 11400000, guid: c78d9d68df443c144aee280a55a2d7a3, type: 2}
+  - {fileID: 11400000, guid: 96ddb3a5db83d684dafb5621a36735d8, type: 2}
+  - {fileID: 11400000, guid: 7974ad8223873e74db21f04d0dafc0d5, type: 2}
+  - {fileID: 11400000, guid: bf32bc4d4d8b98c43ababe6e40001a46, type: 2}
+  - {fileID: 11400000, guid: 3f2180f5f373a094c8891583b16a37b0, type: 2}
+>>>>>>> origin/odio_github
   m_BuildSettings:
     m_LogResourceManagerExceptions: 1
     m_BundleBuildPath: Temp/com.unity.addressables/AssetBundles
