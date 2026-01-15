@@ -117,6 +117,7 @@ namespace Santa.Infrastructure.Combat
                 return;
             }
 
+<<<<<<< HEAD
             // Ensure we have a PhysicsRaycaster for targeting
             EnsurePhysicsRaycaster();
 
@@ -208,6 +209,131 @@ namespace Santa.Infrastructure.Combat
                 }
 
                 CleanupContext();
+=======
+            _sequenceCTS?.Cancel();
+            _sequenceCTS = new CancellationTokenSource();
+
+            EnsurePhysicsRaycaster();
+            ExecuteStartSequence(_sequenceCTS.Token).Forget();
+        }
+
+        private void EnsurePhysicsRaycaster()
+        {
+            if (_explorationCamera != null)
+            {
+                if (!_explorationCamera.TryGetComponent<UnityEngine.EventSystems.PhysicsRaycaster>(out _))
+                {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+                    GameLog.Log("CombatTransitionManager: Adding PhysicsRaycaster to Main Camera to enable Enemy Selection.");
+#endif
+                    _explorationCamera.AddComponent<UnityEngine.EventSystems.PhysicsRaycaster>();
+                }
+                // Ensure strict masking only if needed, but defaults are usually fine (Everything)
+                // raycaster.eventMask = ...;
+            }
+        }
+
+        public void EndCombat(bool playerWon)
+        {
+            if (_currentCombatSceneParent == null || _currentContext == null)
+            {
+                GameLog.LogWarning(Santa.Core.Config.LogMessages.CombatTransition.EndCombatNoContext, this);
+                _gameStateService?.EndCombat(playerWon);
+                CleanupContext();
+                return;
+            }
+
+            _sequenceCTS?.Cancel();
+            _sequenceCTS = new CancellationTokenSource();
+
+            if (endCombatSequence != null)
+            {
+                ExecuteEndSequence(playerWon, _sequenceCTS.Token).Forget();
+            }
+            else
+            {
+                // If no transition sequence, reposition immediately
+                if (!playerWon)
+                {
+                    RepositionPlayerOnDefeat();
+                }
+                _gameStateService?.EndCombat(playerWon);
+                CleanupContext();
+            }
+        }
+
+        private async UniTaskVoid ExecuteStartSequence(CancellationToken token)
+        {
+            try
+            {
+                await startCombatSequence.Execute(_currentContext);
+>>>>>>> origin/odio_github
+            }
+            catch (System.OperationCanceledException)
+            {
+                // Expected during scene transitions
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+<<<<<<< HEAD
+                GameLog.Log("CombatTransitionManager: End sequence cancelled.");
+#endif
+                CleanupContext();
+            }
+            catch (System.Exception ex)
+            {
+                GameLog.LogError($"CombatTransitionManager.ExecuteEndSequence: Exception: {ex.Message}");
+                GameLog.LogException(ex);
+                CleanupContext();
+            }
+        }
+
+        private void RepositionPlayerOnDefeat()
+        {
+            if (respawnPoint != null && _explorationPlayer != null)
+            {
+                GameLog.Log(string.Format(Santa.Core.Config.LogMessages.CombatTransition.PlayerDefeatedRespawning, respawnPoint.position));
+                _explorationPlayer.transform.position = respawnPoint.position;
+            }
+            else
+            {
+                GameLog.LogWarning(Santa.Core.Config.LogMessages.CombatTransition.PlayerDefeatedNoRespawn);
+            }
+        }
+
+=======
+                GameLog.Log("CombatTransitionManager: Start sequence cancelled.");
+#endif
+            }
+            catch (System.Exception ex)
+            {
+                GameLog.LogError($"CombatTransitionManager.ExecuteStartSequence: Exception: {ex.Message}");
+                GameLog.LogException(ex);
+            }
+        }
+
+        private async UniTaskVoid ExecuteEndSequence(bool playerWon, CancellationToken token)
+        {
+            try
+            {
+                // Change game state FIRST, before visual transitions
+                // This ensures that events (OnCombatEnded) fire before UI changes
+                _gameStateService?.EndCombat(playerWon);
+
+                // Now execute visual transitions (UI switch, camera transitions, etc.)
+                await endCombatSequence.Execute(_currentContext);
+
+                if (token.IsCancellationRequested) return;
+
+                // Deactivate combat cameras explicitly AFTER the visual transition is complete.
+                // This ensures Cinemachine can blend from the active combat camera to the exploration camera.
+                _combatCameraManager?.DeactivateCameras();
+
+                // Reposition player AFTER the camera transition is complete
+                if (!playerWon)
+                {
+                    RepositionPlayerOnDefeat();
+                }
+
+                CleanupContext();
             }
             catch (System.OperationCanceledException)
             {
@@ -238,6 +364,7 @@ namespace Santa.Infrastructure.Combat
             }
         }
 
+>>>>>>> origin/odio_github
         private void CleanupContext()
         {
             _currentCombatSceneParent = null;
@@ -245,6 +372,7 @@ namespace Santa.Infrastructure.Combat
             _sequenceCTS?.Cancel();
             _sequenceCTS = null;
         }
+<<<<<<< HEAD
 
         /// <summary>
         /// Ensures a PhysicsRaycaster is present on the exploration camera.
@@ -263,5 +391,7 @@ namespace Santa.Infrastructure.Combat
                 }
             }
         }
+=======
+>>>>>>> origin/odio_github
     }
 }

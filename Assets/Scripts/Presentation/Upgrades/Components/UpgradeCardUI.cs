@@ -68,10 +68,6 @@ namespace Santa.Presentation.Upgrades.Components
 
             if (upgradeDescriptionText != null)
                 upgradeDescriptionText.text = upgrade.UpgradeDescription;
-
-            // If you have an icon system, uncomment below:
-            // if (upgradeIcon != null && upgrade.Icon != null)
-            //     upgradeIcon.sprite = upgrade.Icon;
         }
 
         /// <summary>
@@ -140,6 +136,9 @@ namespace Santa.Presentation.Upgrades.Components
                 {
                     if (token.IsCancellationRequested) return;
 
+                    // Safety check: if object is destroyed during yield
+                    if (this == null) return;
+
                     elapsed += Time.unscaledDeltaTime;
                     float t = elapsed / animationDuration;
 
@@ -148,10 +147,12 @@ namespace Santa.Presentation.Upgrades.Components
 
                     transform.localScale = Vector3.Lerp(startScale, targetScale, t);
                     await UniTask.Yield(PlayerLoopTiming.Update);
-                    if (this == null) return; // Added null check
+
+                    if (this == null) return;
                 }
 
-                transform.localScale = targetScale;
+                if (this != null)
+                    transform.localScale = targetScale;
             }
             catch (System.OperationCanceledException)
             {
@@ -159,11 +160,20 @@ namespace Santa.Presentation.Upgrades.Components
             }
             catch (System.Exception ex)
             {
-                GameLog.LogError($"UpgradeCardUI.AnimateScale: Exception: {ex.Message}");
-                GameLog.LogException(ex);
-                // Reset scale to target
-                if (this != null && transform != null)
-                    transform.localScale = targetScale;
+                // Only log if the object is still alive, otherwise it's just destroy cleanup
+                if (this != null)
+                {
+                    // Silence MissingReferenceException if we missed it
+                    if (!(ex is MissingReferenceException))
+                    {
+                        GameLog.LogError($"UpgradeCardUI.AnimateScale: Exception: {ex.Message}");
+                        GameLog.LogException(ex);
+                    }
+
+                    // Try to reset scale if possible
+                    if (transform != null)
+                        transform.localScale = targetScale;
+                }
             }
         }
     }

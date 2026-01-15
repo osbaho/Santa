@@ -30,6 +30,10 @@ namespace Santa.Infrastructure.Level
         [Tooltip("Prefab for the camera used during liberation transition.")]
         [SerializeField] private CinemachineCamera liberationCameraPrefab;
 
+        [Header("Liberation Sequence")]
+        [Tooltip("Default duration of the world dissolve animation.")]
+        [SerializeField] private float liberationDissolveDuration = 4.0f;
+
         private int currentLevelIndex = -1;
         private readonly List<GameObject> _activeGentrifiedVisuals = new();
         private readonly List<GameObject> _activeLiberatedVisuals = new();
@@ -57,6 +61,7 @@ namespace Santa.Infrastructure.Level
             }
             // Ensure shader starts clean
             dissolveController?.ResetShaders();
+
             // Locate EnvironmentDecorState to persist liberation changes (optional, uses scene search)
             _decorState = FindFirstObjectByType<Santa.Core.Save.EnvironmentDecorState>(FindObjectsInactive.Include);
             if (_decorState == null)
@@ -92,9 +97,6 @@ namespace Santa.Infrastructure.Level
         /// <summary>
         /// Called after winning combat to transform the level to its 'liberated' state.
         /// </summary>
-        /// <summary>
-        /// Called after winning combat to transform the level to its 'liberated' state.
-        /// </summary>
         public void LiberateCurrentLevel()
         {
             LiberateCurrentLevelSequence().Forget();
@@ -122,7 +124,11 @@ namespace Santa.Infrastructure.Level
                 {
                     _currentLiberationCamera = Instantiate(liberationCameraPrefab);
                 }
-                _currentLiberationCamera.transform.position = currentLevel.transitionCenter + currentLevel.cameraOffset;
+
+                // Use level data offset if available, or default
+                Vector3 cameraOffset = currentLevel.cameraOffset != Vector3.zero ? currentLevel.cameraOffset : new Vector3(0, 10, -10);
+
+                _currentLiberationCamera.transform.position = currentLevel.transitionCenter + cameraOffset;
                 _currentLiberationCamera.transform.LookAt(currentLevel.transitionCenter);
                 _currentLiberationCamera.Priority = 2000; // Override everything
                 _currentLiberationCamera.gameObject.SetActive(true);
@@ -148,12 +154,15 @@ namespace Santa.Infrastructure.Level
             }
 
             // 4. Wait for focus
-            await UniTask.Delay(2000);
+            // Use configurable delay from LevelData
+            float delaySeconds = currentLevel.postTransitionDelay;
+
+            await UniTask.Delay(System.TimeSpan.FromSeconds(delaySeconds));
 
             // 5. Animate Dissolve
             if (dissolveController != null)
             {
-                await dissolveController.AnimateDissolveAsync(currentLevel.transitionCenter, currentLevel.transitionRadius, 4.0f);
+                await dissolveController.AnimateDissolveAsync(currentLevel.transitionCenter, currentLevel.transitionRadius, liberationDissolveDuration);
             }
             else
             {
@@ -286,7 +295,7 @@ namespace Santa.Infrastructure.Level
             return null;
         }
 
-        private async UniTask InstantiateLevelVisualsAsync(Santa.Core.LevelData levelData)
+        private async UniTask InstantiateLevelVisualsAsync(LevelData levelData)
         {
             // Find the level anchor in the scene, or fall back to the manager's parent.
             LevelAnchor anchor = FindLevelAnchor(levelData);

@@ -39,6 +39,11 @@ namespace Santa.Presentation.Combat
         public event Action<Ability, GameObject> OnAbilityRequested;
 
         /// <summary>
+        /// Event fired when all abilities have been successfully loaded.
+        /// </summary>
+        public event Action OnAbilitiesLoaded;
+
+        /// <summary>
         /// Returns true if abilities have been successfully loaded from Addressables.
         /// </summary>
         public bool AreAbilitiesLoaded => _abilitiesLoaded;
@@ -82,6 +87,7 @@ namespace Santa.Presentation.Combat
 
                 _abilitiesLoaded = true;
                 SetupButtonListeners();
+                OnAbilitiesLoaded?.Invoke();
 
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
                 GameLog.LogVerbose("CombatUIActionButtons: Abilities loaded successfully.");

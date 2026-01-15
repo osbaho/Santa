@@ -1,40 +1,42 @@
 using UnityEngine;
-using Santa.Core;
 
-/// <summary>
-/// MonoBehaviour component exposing and managing a HealthComponent on a GameObject.
-/// </summary>
-[DisallowMultipleComponent]
-public class HealthComponentBehaviour : MonoBehaviour, IHealthController
+namespace Santa.Core
 {
-    [SerializeField]
-    private HealthComponent health = new HealthComponent();
-    public HealthComponent Health { get { return health; } }
-
-    public event System.Action<int, int> OnValueChanged { add => health.OnValueChanged += value; remove => health.OnValueChanged -= value; }
-
-    public int CurrentValue => health.CurrentValue;
-    public int MaxValue => health.MaxValue;
-    public void AffectValue(int value) => health.AffectValue(value);
-    public void SetValue(int value) => health.SetValue(value);
-    public void SetMaxValue(int value) => health.SetMaxValue(value);
-
     /// <summary>
-    /// Sets health to maximum.
+    /// MonoBehaviour component exposing and managing a HealthComponent on a GameObject.
     /// </summary>
-    public void SetToMax()
+    [DisallowMultipleComponent]
+    public class HealthComponentBehaviour : MonoBehaviour, IHealthController
     {
-        health.SetToMax();
-    }
+        [SerializeField]
+        private HealthComponent health = new HealthComponent();
+        public HealthComponent Health { get { return health; } }
 
-    private void Awake()
-    {
-        if (health != null)
+        public event System.Action<int, int> OnValueChanged { add => health.OnValueChanged += value; remove => health.OnValueChanged -= value; }
+
+        public int CurrentValue => health.CurrentValue;
+        public int MaxValue => health.MaxValue;
+        public void AffectValue(int value) => health.AffectValue(value);
+        public void SetValue(int value) => health.SetValue(value);
+        public void SetMaxValue(int value) => health.SetMaxValue(value);
+
+        /// <summary>
+        /// Sets health to maximum.
+        /// </summary>
+        public void SetToMax()
         {
-            // Set owner for death event
-            health.SetOwner(this.gameObject);
-            // Ensure health starts at a valid value; default serialized value is zero.
             health.SetToMax();
+        }
+
+        private void Awake()
+        {
+            if (health != null)
+            {
+                // Set owner for death event
+                health.SetOwner(this.gameObject);
+                // Ensure health starts at a valid value; default serialized value is zero.
+                health.SetToMax();
+            }
         }
     }
 }

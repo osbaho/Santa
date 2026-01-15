@@ -8,6 +8,7 @@ namespace Santa.Core
     /// It holds references to visual elements for different states.
     /// </summary>
     [CreateAssetMenu(fileName = "New LevelData", menuName = "Santa/Level Data")]
+    // Forces recompile
     public class LevelData : ScriptableObject
     {
         [Header("Level Information")]
@@ -22,6 +23,9 @@ namespace Santa.Core
 
         [Tooltip("Offset relative to transitionCenter for the camera position.")]
         public Vector3 cameraOffset = new Vector3(5.5f, 4f, 21f);
+
+        [Tooltip("Time in seconds to wait for the camera to focus before starting dissolve.")]
+        public float postTransitionDelay = 2.0f;
 
         [Header("Visual State GameObjects")]
         [Tooltip("Visuals to be active when the area is in its initial, 'gentrified' state (e.g., North American Christmas).")]

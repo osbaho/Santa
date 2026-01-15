@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 1820819c01aa54b4cbe4f0b4b26546c7
+=======
+<<<<<<<< HEAD:Assets/Prefabs/Decor/American/Enemy_01/Street_Snow.prefab.meta
+guid: eba218b21d20db242835843e854ce0ab
+========
+guid: 1820819c01aa54b4cbe4f0b4b26546c7
+>>>>>>>> origin/odio_github:Assets/Prefabs/Camera/LiberationCamera.prefab.meta
+>>>>>>> origin/odio_github
 PrefabImporter:
   externalObjects: {}
   userData: 

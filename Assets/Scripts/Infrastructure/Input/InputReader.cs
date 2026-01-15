@@ -26,6 +26,7 @@ namespace Santa.Infrastructure.Input
             if (!_actionMap.UI.enabled)
             {
                 _actionMap.UI.Enable();
+<<<<<<< HEAD
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
                 GameLog.Log($"InputReader '{name}': Enabled UI action map for pointer/click processing.");
 #endif
@@ -40,6 +41,20 @@ namespace Santa.Infrastructure.Input
 
         public void OnMove(InputAction.CallbackContext context)
         {
+=======
+
+            }
+        }
+
+        private void OnDisable()
+        {
+            _actionMap.Player.Disable();
+            _actionMap.UI.Disable();
+        }
+
+        public void OnMove(InputAction.CallbackContext context)
+        {
+>>>>>>> origin/odio_github
             MoveEvent?.Invoke(context.ReadValue<Vector2>());
         }
 
@@ -67,9 +82,13 @@ namespace Santa.Infrastructure.Input
         /// </summary>
         public void RaiseInteract()
         {
+<<<<<<< HEAD
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
             GameLog.Log($"InputReader '{name}': RaiseInteract invoked.");
 #endif
+=======
+
+>>>>>>> origin/odio_github
             InteractEvent?.Invoke();
         }
 

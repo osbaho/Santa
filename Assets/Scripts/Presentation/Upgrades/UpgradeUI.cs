@@ -12,7 +12,6 @@ using AbilityUpgrade = Santa.Domain.Combat.AbilityUpgrade;
 
 namespace Santa.Presentation.Upgrades
 {
-
     /// <summary>
     /// Manages the UI screen for choosing an ability upgrade after winning a battle.
     /// Refactored to work as a prefab with modular card components.
@@ -99,8 +98,8 @@ namespace Santa.Presentation.Upgrades
             }
 
             // Configure cards
-            option1Card?.Setup(upgrade1);
-            option2Card?.Setup(upgrade2);
+            if (option1Card != null) option1Card.Setup(upgrade1);
+            if (option2Card != null) option2Card.Setup(upgrade2);
 
             // Set title via centralized UI strings
             if (titleText != null)
@@ -173,22 +172,25 @@ namespace Santa.Presentation.Upgrades
             try
             {
                 float elapsed = 0f;
-                canvasGroup.interactable = false; // Disable during animation
+                if (canvasGroup != null)
+                    canvasGroup.interactable = false; // Disable during animation
 
                 while (elapsed < fadeInDuration)
                 {
                     if (token.IsCancellationRequested) return;
+                    if (canvasGroup == null) return;
 
                     elapsed += Time.unscaledDeltaTime;
-                    if (canvasGroup == null) return;
                     canvasGroup.alpha = Mathf.Clamp01(elapsed / fadeInDuration);
                     await UniTask.Yield(PlayerLoopTiming.Update);
-                    if (canvasGroup == null) return;
                 }
 
-                canvasGroup.alpha = 1f;
-                canvasGroup.interactable = true;
-                canvasGroup.blocksRaycasts = true;
+                if (canvasGroup != null)
+                {
+                    canvasGroup.alpha = 1f;
+                    canvasGroup.interactable = true;
+                    canvasGroup.blocksRaycasts = true;
+                }
             }
             catch (System.OperationCanceledException)
             {
@@ -196,12 +198,15 @@ namespace Santa.Presentation.Upgrades
             }
             catch (System.Exception ex)
             {
-                GameLog.LogError($"UpgradeUI.FadeIn: Exception: {ex.Message}");
-                GameLog.LogException(ex);
-                // Ensure UI is in a valid state
-                canvasGroup.alpha = 1f;
-                canvasGroup.interactable = true;
-                canvasGroup.blocksRaycasts = true;
+                if (canvasGroup != null && !(ex is MissingReferenceException))
+                {
+                    GameLog.LogError($"UpgradeUI.FadeIn: Exception: {ex.Message}");
+                    GameLog.LogException(ex);
+                    // Ensure UI is in a valid state
+                    canvasGroup.alpha = 1f;
+                    canvasGroup.interactable = true;
+                    canvasGroup.blocksRaycasts = true;
+                }
             }
         }
 
@@ -210,21 +215,24 @@ namespace Santa.Presentation.Upgrades
             try
             {
                 float elapsed = 0f;
-                canvasGroup.interactable = false;
+                if (canvasGroup != null)
+                    canvasGroup.interactable = false;
 
                 while (elapsed < fadeInDuration)
                 {
                     if (token.IsCancellationRequested) return;
+                    if (canvasGroup == null) return;
 
                     elapsed += Time.unscaledDeltaTime;
-                    if (canvasGroup == null) return;
                     canvasGroup.alpha = Mathf.Clamp01(1f - (elapsed / fadeInDuration));
                     await UniTask.Yield(PlayerLoopTiming.Update);
-                    if (canvasGroup == null) return;
                 }
 
-                canvasGroup.alpha = 0f;
-                canvasGroup.blocksRaycasts = false;
+                if (canvasGroup != null)
+                {
+                    canvasGroup.alpha = 0f;
+                    canvasGroup.blocksRaycasts = false;
+                }
 
                 if (upgradePanel != null)
                     upgradePanel.SetActive(false);
@@ -235,13 +243,18 @@ namespace Santa.Presentation.Upgrades
             }
             catch (System.Exception ex)
             {
-                GameLog.LogError($"UpgradeUI.FadeOut: Exception: {ex.Message}");
-                GameLog.LogException(ex);
-                // Ensure UI is hidden
-                canvasGroup.alpha = 0f;
-                canvasGroup.blocksRaycasts = false;
-                if (upgradePanel != null)
+                if (canvasGroup != null && !(ex is MissingReferenceException))
+                {
+                    GameLog.LogError($"UpgradeUI.FadeOut: Exception: {ex.Message}");
+                    GameLog.LogException(ex);
+                    // Ensure UI is hidden
+                    canvasGroup.alpha = 0f;
+                    canvasGroup.blocksRaycasts = false;
+                }
+                if (upgradePanel != null && !(ex is MissingReferenceException))
+                {
                     upgradePanel.SetActive(false);
+                }
             }
         }
 
@@ -259,8 +272,8 @@ namespace Santa.Presentation.Upgrades
             }
 
             // Disable both cards to avoid double-click
-            option1Card?.SetInteractable(false);
-            option2Card?.SetInteractable(false);
+            if (option1Card != null) option1Card.SetInteractable(false);
+            if (option2Card != null) option2Card.SetInteractable(false);
 
             // 1. Apply the stat upgrade
             _upgradeService?.ApplyUpgrade(chosenUpgrade);
@@ -275,7 +288,6 @@ namespace Santa.Presentation.Upgrades
             _combatTransitionService?.EndCombat(true);
 
             // 5. Deactivate TurnBasedCombatManager now that upgrade is selected
-            // This was previously happening too early in TurnBasedCombatManager.EndCombat()
             var combatManager = _combatManager;
             if (combatManager == null)
             {

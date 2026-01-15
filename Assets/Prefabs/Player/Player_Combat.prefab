@@ -128,10 +128,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3319e7c983239ff418e0d367ca8a08af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
   health:
     maxValue: 100
     currentValue: 0
 --- !u!114 &4109587412847692036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077591991422233913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0a3926f36e86c4d84b34d2e4a6d23c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatSceneAddress: CombatArena_02
+  combatCamera: {fileID: 0}
+  autoPrewarm: 0
+  prewarmCount: 1
+  releaseAddressablesInstances: 0
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

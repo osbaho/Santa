@@ -17,8 +17,11 @@ namespace Santa.Presentation.UI
         private IObjectResolver _resolver;
         [SerializeField] private Transform dynamicPanelsParent; // Optional parent for runtime Addressables panels
 
+<<<<<<< HEAD
         public Transform DynamicPanelsParent => dynamicPanelsParent;
 
+=======
+>>>>>>> origin/odio_github
         [Inject]
         public void Construct(IObjectResolver resolver)
         {
@@ -122,6 +125,7 @@ namespace Santa.Presentation.UI
             foreach (var panelInstance in _addressToInstanceMap.Values)
             {
                 if (panelInstance != null)
+<<<<<<< HEAD
                     Addressables.ReleaseInstance(panelInstance);
             }
             _addressToInstanceMap.Clear();
@@ -142,6 +146,30 @@ namespace Santa.Presentation.UI
             {
                 if (panelInstance.TryGetComponent<UIPanel>(out var panelComponent))
                 {
+=======
+                {
+                    Addressables.ReleaseInstance(panelInstance);
+                }
+            }
+            _addressToInstanceMap.Clear();
+        }
+
+        public async UniTask ShowPanel(string panelAddress)
+        {
+            if (string.IsNullOrEmpty(panelAddress))
+            {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+                GameLog.LogError(Santa.Core.Config.LogMessages.UI.PanelAddressNull);
+#endif
+                return;
+            }
+
+            // If panel is already cached, just show it.
+            if (_addressToInstanceMap.TryGetValue(panelAddress, out var panelInstance))
+            {
+                if (panelInstance.TryGetComponent<UIPanel>(out var panelComponent))
+                {
+>>>>>>> origin/odio_github
                     BringToFront(panelInstance);
                     panelComponent.Show();
                 }
