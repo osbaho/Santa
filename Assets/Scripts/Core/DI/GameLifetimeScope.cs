@@ -2,11 +2,13 @@ using Santa.Core;
 using Santa.Core.Player;
 using Santa.Core.Pooling;
 using Santa.Domain.Upgrades;
+using Santa.Infrastructure.Audio;
 using Santa.Infrastructure.Camera;
 using Santa.Infrastructure.Combat;
 using Santa.Infrastructure.Input;
 using Santa.Infrastructure.Level;
 using Santa.Infrastructure.State;
+using Santa.Infrastructure.VFX;
 using Santa.Presentation.HUD;
 using Santa.Presentation.Menus;
 using Santa.Presentation.UI;
@@ -26,9 +28,8 @@ public class GameLifetimeScope : LifetimeScope
     [SerializeField]
     private TurnBasedCombatManager turnBasedCombatManagerInstance;
 
-    // TODO: Uncomment when the audio system is implemented
-    // [SerializeField]
-    // private AudioManager audioManagerInstance;
+    [SerializeField]
+    private AudioManager audioManagerInstance;
 
     [SerializeField]
     private CombatTransitionManager combatTransitionManagerInstance;
@@ -51,9 +52,8 @@ public class GameLifetimeScope : LifetimeScope
     [SerializeField]
     private CombatCameraManager combatCameraManagerInstance;
 
-    // TODO: Uncomment when the VFX system is implemented
-    // [SerializeField]
-    // private VFXManager vfxManagerInstance;
+    [SerializeField]
+    private VFXManager vfxManagerInstance;
 
     protected override void Awake()
     {
@@ -80,8 +80,7 @@ public class GameLifetimeScope : LifetimeScope
         RegisterService<IUIManager, UIManager>(builder, uiManagerInstance);
         RegisterService<ICombatService, TurnBasedCombatManager>(builder, turnBasedCombatManagerInstance);
 
-        // TODO: Uncomment when the audio system is implemented
-        // RegisterService<IAudioService, AudioManager>(builder, audioManagerInstance);
+        RegisterService<IAudioService, AudioManager>(builder, audioManagerInstance);
 
         RegisterService<ICombatTransitionService, CombatTransitionManager>(builder, combatTransitionManagerInstance);
         RegisterService<ICombatEncounterManager, CombatEncounterManager>(builder, combatEncounterManagerInstance);
@@ -123,8 +122,7 @@ public class GameLifetimeScope : LifetimeScope
             }
         }
 
-        // TODO: Uncomment when the VFX system is implemented
-        // RegisterService<IVFXService, VFXManager>(builder, vfxManagerInstance);
+        RegisterService<IVFXService, VFXManager>(builder, vfxManagerInstance);
 
         // --- Dynamic UI via Addressables ---
         // UpgradeUI loads via Addressables like other UIs.
